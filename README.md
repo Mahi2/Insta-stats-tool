@@ -1,2 +1,2 @@
 # Insta-stats-tool
-Tool communicating with the instagram API to find statistics on the most popular account for example, the most popular hashtag, the most commented post,...
+an online social tracking tool that gives you the ability to track unlimited Instagram Accounts and generating professional audits, including day by day tracking, engagement rates, top posts, top hashtags, and top mentions and many more. Find the best influencers on Instagram and keep them on track. It also comes with a Paypal and Stripe payment gateway so that your users can purchase benefits from your website. I decided to make this tool free of charge
