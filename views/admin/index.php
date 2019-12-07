@@ -5,3 +5,9 @@
         <i class="fa fa-minus"></i> Your web server does not have cURL installed and enabled. Please contact your webhost provider or install cURL.
     </div>
 <?php endif ?>
+
+<?php if(!function_exists('iconv')): ?>
+    <div class="alert alert-danger" role="alert">
+        <i class="fa fa-minus"></i> Your web server disabled the <strong>iconv()</strong> php function. Please contact your webhost provider or install php with iconv().
+    </div>
+<?php endif ?>
