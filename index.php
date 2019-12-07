@@ -14,3 +14,8 @@
 
  /* Enabling debug mode is only for debugging and development purposes */
 define('DEBUG', false);
+
+ /* Enabling mysql debug mode is only for debugging and development purposes */
+define('MYSQL_DEBUG', false);
+
+require 'core/base.php';
