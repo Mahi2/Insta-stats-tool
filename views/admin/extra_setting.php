@@ -16,3 +16,7 @@
 
                     <div class="media mb-3">
                         <div class="mr-3 plugin" style="background: <?= $plugin->color ?>"><?= substr($plugin->name, 0, 1) ?></div>
+
+                        <div class="media-body">
+                            <h6 class="my-0"><?= $plugin->name ?></h6>
+                        </div>
