@@ -8,3 +8,6 @@
  * @twitter     https://twitter.com/mahidhm
  *
  */
+
+ /* Security purpose define */
+ define('ALTUMCODE', true);
