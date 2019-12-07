@@ -17,3 +17,20 @@
         <i class="fa fa-minus"></i> You are on PHP Version <strong><?= PHP_VERSION ?></strong> and the script requires at least <strong>PHP 7 or above</strong>.
     </div>
 <?php endif ?>
+
+<div class="mb-3 row justify-content-between">
+    <div class="col-6 col-md-3 mb-3">
+        <div class="card card-shadow h-100 zoomer">
+            <div class="card-body pb-0">
+                <p>
+                    <span class="card-title h4"><?= $reports_month ?></span>
+
+                    <?= $language->admin_index->display->unlocked_reports_month ?>
+                </p>
+            </div>
+
+            <div class="admin-widget-chart-container">
+                <canvas id="unlocked_reports"></canvas>
+            </div>
+        </div>
+    </div>
