@@ -20,3 +20,23 @@
                         <div class="media-body">
                             <h6 class="my-0"><?= $plugin->name ?></h6>
                         </div>
+                        <div>
+                            <?php if($plugins->get($plugin->identifier)): ?>
+
+                                <?php if($plugin->status): ?>
+                                    <a href="admin/extra-settings/plugin_status/<?= $plugin->identifier . '/' . Security::csrf_get_session_token('url_token') ?>" class="btn btn-sm btn-primary"><?= $language->admin_extra_settings->display->deactivate ?></a>
+                                <?php else: ?>
+                                    <a href="admin/extra-settings/plugin_status/<?= $plugin->identifier . '/' . Security::csrf_get_session_token('url_token') ?>" class="btn btn-sm btn-light"><?= $language->admin_extra_settings->display->activate ?></a>
+                                <?php endif ?>
+
+                            <?php else: ?>
+                                <a href="https://altumcode.link/phpanalyzer" class="btn btn-sm btn-success"><i class="fa fa-cloud-download-alt"></i> <?= $language->admin_extra_settings->display->get ?></a>
+                            <?php endif ?>
+                        </div>
+                    </div>
+
+                <?php endwhile ?>
+            <?php endif ?>
+        </div>
+    </div>
+</div>
