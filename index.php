@@ -11,3 +11,6 @@
 
  /* Security purpose define */
  define('ALTUMCODE', true);
+
+ /* Enabling debug mode is only for debugging and development purposes */
+define('DEBUG', false);
