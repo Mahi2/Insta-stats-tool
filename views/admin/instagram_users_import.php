@@ -20,3 +20,5 @@
                 <button type="submit" name="submit" class="btn btn-primary"><?= $language->global->submit_button ?></button>
             </div>
         </form>
+        </div>
+</div>
