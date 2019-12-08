@@ -251,3 +251,39 @@
         </div>
     </div>
 </div>
+<div class="mb-3 row">
+    <div class="col-md-6 mb-3 mb-md-0">
+        <div class="card card-shadow h-100">
+            <div class="card-body">
+
+                <table class="table table-borderless">
+                    <tbody>
+                    <tr>
+                        <th>⚡️ Version</th>
+                        <td><?= PRODUCT_VERSION ?></td>
+                    </tr>
+                    <th>📚 Documentation</th>
+                    <td><a href="<?= PRODUCT_DOCUMENTATION_URL ?>" target="_blank">Check Documentation</a></td>
+                    </tr>
+                    <tr>
+                        <th>👁 Check for updates</th>
+                        <td><a href="<?= PRODUCT_URL ?>" target="_blank">Codecanyon</a></td>
+                    </tr>
+                    <tr>
+                        <th>💼 More work of mine</th>
+                        <td><a href="https://codecanyon.net/user/altumcode/portfolio" target="_blank">Envato // Codecanyon</a></td>
+                    </tr>
+                    <tr>
+                        <th>🔥 Official website</th>
+                        <td><a href="https://altumcode.io/" target="_blank">AltumCode.io</a></td>
+                    </tr>
+                    <tr>
+                        <th>🐦 Twitter Updates <br /><small>No support on twitter</small></th>
+                        <td><a href="https://twitter.com/altumcode" target="_blank">@altumcode</a></td>
+                    </tr>
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
