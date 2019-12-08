@@ -212,3 +212,22 @@
             }
         });
     </script>
+    <div class="col-6 col-md-3 mb-3 mb-md-0 zoomer">
+        <div class="card card-shadow h-100">
+            <div class="card-body">
+                <h4 class="card-title"><?= $reports->unlocked_reports ?></h4>
+
+                <?= $language->admin_index->display->unlocked_reports ?>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-6 col-md-3 mb-3 mb-md-0 zoomer">
+        <div class="card card-shadow h-100">
+            <div class="card-body">
+                <h4 class="card-title"><?= $users->active_users ?></h4>
+
+                <?= $language->admin_index->display->active_users ?>
+            </div>
+        </div>
+    </div>
