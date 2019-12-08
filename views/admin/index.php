@@ -79,3 +79,18 @@
             }
         });
     </script>
+
+<div class="col-6 col-md-3 mb-3">
+        <div class="card card-shadow h-100 zoomer">
+            <div class="card-body">
+                <div class="card-body pb-0">
+                    <p>
+                        <span class="card-title h4"><?= $users->active_users_month ?></span>
+
+                        <?= $language->admin_index->display->active_users_month ?>
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </div>
