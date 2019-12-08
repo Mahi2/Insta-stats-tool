@@ -57,3 +57,14 @@ $(document).ready(() => {
                 sortable: false
             }
         ],
+        responsive: true,
+        drawCallback: () => {
+            $('[data-toggle="tooltip"]').tooltip();
+        },
+        dom: "<'row'<'col-sm-12 col-md-6'l><'col-sm-12 col-md-6'f>>" +
+            "<'row'<'col-sm-12'tr>>" +
+            "<'row'<'col-sm-12 col-md-5 text-muted'i><'col-sm-12 col-md-7'p>>"
+    });
+
+});
+</script>
