@@ -36,3 +36,14 @@
     </div>
 
     <script>
+    new Chart(document.getElementById('unlocked_reports').getContext('2d'), {
+            type: 'line',
+            data: {
+                labels: <?= $reports_month_chart['labels'] ?>,
+                datasets: [{
+                    data: <?= $reports_month_chart['data'] ?>,
+                    backgroundColor: 'rgba(237, 73, 86, .5)',
+                    borderColor: 'rgb(237, 73, 86)',
+                    fill: true
+                }]
+            },
