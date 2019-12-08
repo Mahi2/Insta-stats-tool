@@ -21,3 +21,5 @@
         </div>
     </div>
 </div>
+
+<input type="hidden" name="url" value="<?= $settings->url . $route . 'source-users-management/instagram/ajax' ?>" />
