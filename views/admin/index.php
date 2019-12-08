@@ -109,3 +109,47 @@
             </div>
         </div>
     </div>
+    <script>
+        new Chart(document.getElementById('transactions').getContext('2d'), {
+            type: 'line',
+            data: {
+                labels: <?= $payments_month_chart['labels'] ?>,
+                datasets: [{
+                    data: <?= $payments_month_chart['transactions'] ?>,
+                    backgroundColor: 'rgba(44, 175, 247, .5)',
+                    borderColor: 'rgb(44, 175, 247)',
+                    fill: true
+                }]
+            },
+            options: {
+                legend: {
+                    display: false
+                },
+                tooltips: {
+                    enabled: false
+                },
+                title: {
+                    display: false
+                },
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    yAxes: [{
+                        display: false,
+                        gridLines: false,
+                        ticks: {
+                            userCallback: (value, index, values) => {
+                                if(Math.floor(value) === value) {
+                                    return number_format(value, 0, '<?= $language->global->number->decimal_point ?>', '<?= $language->global->number->thousands_separator ?>');
+                                }
+                            }
+                        }
+                    }],
+                    xAxes: [{
+                        display: false,
+                        gridLines: false,
+                    }]
+                }
+            }
+        });
+    </script>
