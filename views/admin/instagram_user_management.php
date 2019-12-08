@@ -23,3 +23,37 @@
 </div>
 
 <input type="hidden" name="url" value="<?= $settings->url . $route . 'source-users-management/instagram/ajax' ?>" />
+
+<script>
+$(document).ready(() => {
+    let datatable = $('#results').DataTable({
+        language: <?= json_encode($language->datatable) ?>,
+        serverSide: true,
+        processing: true,
+        ajax: {
+            url: $('[name="url"]').val(),
+            type: 'POST'
+        },
+        lengthMenu: [[25, 50, 100], [25, 50, 100]],
+        columns: [
+            {
+                data: 'username',
+                searchable: true,
+                sortable: true
+            },
+            {
+                data: 'full_name',
+                searchable: true,
+                sortable: true
+            },
+            {
+                data: 'last_check_date',
+                searchable: false,
+                sortable: false
+            },
+            {
+                data: 'actions',
+                searchable: false,
+                sortable: false
+            }
+        ],
