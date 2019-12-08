@@ -94,3 +94,18 @@
             </div>
         </div>
     </div>
+    <div class="col-6 col-md-3 mb-3">
+        <div class="card card-shadow h-100 zoomer">
+            <div class="card-body pb-0">
+                <p>
+                    <span class="card-title h4"><?= $transactions_month ?></span>
+
+                    <?= $language->admin_index->display->transactions_month ?>
+                </p>
+            </div>
+
+            <div class="admin-widget-chart-container">
+                <canvas id="transactions"></canvas>
+            </div>
+        </div>
+    </div>
