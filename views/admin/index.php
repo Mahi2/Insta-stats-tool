@@ -287,3 +287,26 @@
             </div>
         </div>
     </div>
+    <div class="col-md-6">
+        <div class="card card-shadow h-100">
+            <div class="card-body">
+                <h4 class="card-title"><?= $language->admin_index->display->latest_users ?></h4>
+
+                <?php
+                $result = $database->query("SELECT `user_id`, `username`, `name`, `email`, `active` FROM `users` ORDER BY `user_id` DESC LIMIT 5");
+                ?>
+                <table class="table table-responsive-md">
+                    <tbody>
+                    <?php while($data = $result->fetch_object()): ?>
+                        <tr>
+                            <td><?= '<a href="' . $settings->url . 'admin/user-edit/' . $data->user_id . '">' . $data->username . '</a>' ?></td>
+                            <td><?= $data->email ?></td>
+                            <td><?=  User::admin_generate_buttons('user', $data->user_id) ?></td>
+                        </tr>
+                    <?php endwhile ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
