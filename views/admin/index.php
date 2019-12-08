@@ -310,3 +310,7 @@
         </div>
     </div>
 </div>
+
+<?php
+$result = $database->query("SELECT `payments`.*, `users`.`username` FROM `payments` LEFT JOIN `users` ON `payments`.`user_id` = `users`.`user_id` ORDER BY `id` DESC LIMIT 5");
+?>
