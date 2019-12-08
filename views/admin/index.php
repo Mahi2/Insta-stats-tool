@@ -314,3 +314,29 @@
 <?php
 $result = $database->query("SELECT `payments`.*, `users`.`username` FROM `payments` LEFT JOIN `users` ON `payments`.`user_id` = `users`.`user_id` ORDER BY `id` DESC LIMIT 5");
 ?>
+
+<?php if($result->num_rows): ?>
+<div class="mb-3">
+    <div class="card card-shadow">
+        <div class="card-body">
+            <h4 class="card-title"><?= $language->admin_index->display->latest_payments ?></h4>
+
+
+            <table class="table table-responsive-md">
+                <tbody>
+                <?php while($data = $result->fetch_object()): ?>
+                    <tr>
+                        <td><?= '<a href="' . $settings->url . 'admin/user-edit/' . $data->user_id . '">' . $data->username . '</a>' ?></td>
+                        <td><?= $data->type ?></td>
+                        <td><?= $data->email ?></td>
+                        <td><?= $data->name ?></td>
+                        <td><span class="text-success"><?= $data->amount ?></span> <?= $data->currency ?></td>
+                        <td><?= $data->date ?></td>
+                    </tr>
+                <?php endwhile ?>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<?php endif ?>
