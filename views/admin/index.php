@@ -47,3 +47,35 @@
                     fill: true
                 }]
             },
+            options: {
+                legend: {
+                    display: false
+                },
+                tooltips: {
+                    enabled: false
+                },
+                title: {
+                    display: false
+                },
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    yAxes: [{
+                        display: false,
+                        gridLines: false,
+                        ticks: {
+                            userCallback: (value, index, values) => {
+                                if(Math.floor(value) === value) {
+                                    return number_format(value, 0, '<?= $language->global->number->decimal_point ?>', '<?= $language->global->number->thousands_separator ?>');
+                                }
+                            }
+                        }
+                    }],
+                    xAxes: [{
+                        display: false,
+                        gridLines: false,
+                    }]
+                }
+            }
+        });
+    </script>
