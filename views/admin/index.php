@@ -153,3 +153,18 @@
             }
         });
     </script>
+    <div class="col-6 col-md-3 mb-3">
+        <div class="card card-shadow h-100 zoomer">
+            <div class="card-body pb-0">
+                <p>
+                    <span class="card-title h4"><span class="text-success"><?= $earnings_month ?></span> <?= $settings->store_currency ?></span>
+
+                    <?= $language->admin_index->display->earnings_month ?>
+                </p>
+            </div>
+
+            <div class="admin-widget-chart-container">
+                <canvas id="earnings"></canvas>
+            </div>
+        </div>
+    </div>
