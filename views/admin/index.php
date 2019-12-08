@@ -231,3 +231,23 @@
             </div>
         </div>
     </div>
+    <div class="col-6 col-md-3 mb-3 mb-md-0 zoomer">
+        <div class="card card-shadow h-100">
+            <div class="card-body">
+                <h4 class="card-title"><?= $payments->transactions ?></h4>
+
+                <?= $language->admin_index->display->transactions ?>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-6 col-md-3 mb-3 mb-md-0 zoomer">
+        <div class="card card-shadow h-100">
+            <div class="card-body">
+                <h4 class="card-title"><span class="text-success"><?= $payments->earnings ?></span> <?= $settings->store_currency ?></h4>
+
+                <?= $language->admin_index->display->earnings ?>
+            </div>
+        </div>
+    </div>
+</div>
