@@ -35,3 +35,12 @@ $('a[href*="#"][class*="navigator"]').on('click', event => {
 
     event.preventDefault();
 });
+
+/* MAke sure the url has a trailing slash */
+$('#url').on('change', event => {
+    let input = $(event.currentTarget).val();
+
+    if(!input.endsWith('/')) {
+        $(event.currentTarget).val(`${input}/`);
+    }
+});
