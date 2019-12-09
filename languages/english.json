@@ -1068,4 +1068,102 @@
 			"cron"						: "Cron Job",
 			"proxy"						: "Proxy"
 		}
+    },
+    "admin_extra_settings": {
+		"title"							: "Extra Settings",
+		"menu"							: "Extra Settings",
+
+		"header2"						: "Plugins",
+		"subheader2"					: "Here you can manage and check the plugins in the system.",
+
+		"input": {
+			"username"					: "Username",
+			"is_featured"				: "Is Featured: %s"
+		},
+
+		"table": {
+			"username"					: "Username",
+			"actions"					: "",
+			"is_featured"				: "Is Featured",
+			"source"					: "Source"
+		},
+
+		"display": {
+			"no_plugins"				: "A plugin is currently under development.. Stay tuned 🔥",
+			"activate"					: "Activate",
+			"deactivate"				: "Deactivate",
+			"get"						: "Download Plugin",
+
+			"demo_reports"				: "Demo Reports",
+			"demo_reports_help"			: "Here you can set which reports are displayed on the index and are for free for all users."
+		},
+
+		"error_message": {
+
+		}
 	},
+
+	"admin_website_statistics": {
+		"title"							: "Website Statistics",
+		"menu"							: "Statistics",
+		"header"						: "Statistics from <u>%s</u> to <u>%s</u>",
+		"subheader"						: "See how your website evolves throughout the time.",
+
+		"sales": {
+			"header"					: "Your website's generated sales",
+			"sales"						: "%s sales and generated a revenue of %s %s",
+			"no_sales"					: "You don't have any sales yet. Keep on going!"
+		},
+
+		"new": {
+			"users"						: "New Users",
+			"payments"					: "New Payments",
+			"favorites"					: "New Favorited Reports",
+			"unlocked_reports"			: "New Unlocked Reports"
+		}
+	},
+
+
+	"not_found": {
+		"title"							: "Not found",
+		"content"						: "The page you're looking for does not exist...",
+		"reports_header"				: "In the meantime..",
+		"reports_subheader"				: "You can check out some of our demo analytics reports, they are just great!",
+
+		"error_message": {
+			"invalid_link" 				: "You just tried to enter a broken link.. "
+		}
+	},
+
+	"api": {
+		"error_message": {
+			"unauthorized"				: "Your api key is not authorized to make this request.",
+			"not_found"					: "This username is not found in the system."
+		}
+	},
+
+	"datatable": {
+		"sEmptyTable"					: "No data available in table",
+		"sInfo"							: "Showing _START_ to _END_ of _TOTAL_ entries",
+		"sInfoEmpty"					: "Showing 0 to 0 of 0 entries",
+		"sInfoFiltered"					: "(filtered from _MAX_ total entries)",
+		"sInfoPostFix"					: "",
+		"sInfoThousands"				: ",",
+		"sLengthMenu"					: "_MENU_",
+		"sLoadingRecords"				: "Loading...",
+		"sProcessing"					: "<div id=\"loading\" class=\"text-center\"><div class=\"lds-ripple\"><div></div><div></div></div></div>",
+		"searchPlaceholder"				: "Search..",
+		"search"						: "",
+		"sZeroRecords"					: "No matching records found",
+		"oPaginate": {
+			"sFirst"					: "First",
+			"sLast"						: "Last",
+			"sNext"						: "Next",
+			"sPrevious"					: "Previous"
+		},
+		"oAria": {
+			"sSortAscending"			: ": activate to sort column ascending",
+			"sSortDescending"			: ": activate to sort column descending"
+		}
+	}
+}
