@@ -1,0 +1,158 @@
+:root {
+    --altumcode-color: #1ab98c;
+    --altumcode-color-hover: #1a9b70;
+
+    --altumcode-gray: #f5f5f5;
+}
+
+body {
+    font-family: 'Open Sans';
+    color: #373737;
+    font-size: 15px;
+    position: relative;
+}
+
+a {
+    color: var(--altumcode-color);
+}
+
+a:hover {
+    color: var(--altumcode-color-hover);
+}
+
+
+/* Extra */
+.btn-altumcode {
+    background: var(--altumcode-color);
+    color: white;
+}
+
+.btn-altumcode:hover {
+    background: var(--altumcode-color-hover);
+    color: #f0f0f0;
+}
+
+
+/* HEADER */
+.header {
+    background: var(--altumcode-color);
+    padding: 3rem 0;
+    color: white;
+}
+
+.header .subheader {
+    font-size: .8rem;
+    color: var(--altumcode-gray) !important;
+}
+
+
+.header .subheader a {
+    color: white;
+}
+
+
+
+/* MAIN */
+.main {
+    margin-top: 3rem;
+}
+
+.main h1, .main h2, .main h3, .main h4, .main h5 {
+    color: #080808;
+}
+
+/* MAIN SIDEBAR */
+.main .sidebar-nav {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 1rem;
+}
+
+.main .sidebar {
+    list-style: none;
+    padding-left: 0;
+}
+
+.main .sidebar li {
+    /*margin-bottom: 1rem;*/
+}
+
+.main .sidebar li a {
+    padding: .5rem .75rem;
+    color: #373737;
+    transition: all .3s ease;
+}
+
+.main .sidebar li a:hover {
+    text-decoration: none;
+    color: var(--altumcode-color);
+}
+
+.main .sidebar li a.active {
+    color: var(--altumcode-color);
+    border-left: 5px solid var(--altumcode-color);
+    background: linear-gradient(90deg, rgba(26,185,140,.2) 0%, rgba(255,255,255,0) 100%);
+    font-weight: bold;
+}
+
+.main .sidebar-sub {
+    list-style: none;
+    padding-left: 1rem;
+    margin-bottom: 1rem;
+}
+
+.main .sidebar-sub li {
+    margin-bottom: 0;
+}
+
+.main .sidebar-sub li a {
+    font-size: .9rem;
+}
+
+/* MAIN CONTENT */
+.main #content {
+}
+
+.main section {
+    margin-bottom: 5rem;
+}
+
+.main .block {
+    margin: 2.5rem 0;
+}
+
+.main .links {
+    list-style: none;
+}
+
+.main .img-icon {
+    width: 20px
+}
+
+/* ^_^ */
+h1, h2, h3, h4, h5 {
+    font-weight: bold;
+}
+
+h1 {
+    font-size: 1.8rem;
+}
+
+h2 {
+    font-size: 1.7rem;
+}
+
+h3 {
+    font-size: 1.25rem;
+}
+
+code {
+    color: #19b98c;
+    background: #19b98c2e;
+    padding: .15rem .35rem;
+    border-radius: .25rem;
+}
+
+li {
+    margin-bottom: .5rem;
+}
