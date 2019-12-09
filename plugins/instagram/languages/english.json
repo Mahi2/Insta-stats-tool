@@ -1,0 +1,167 @@
+{
+    "global": {
+        "name"                          : "Instagram",
+        "icon"                          : "fab fa-instagram",
+        "search_placeholder"            : "Enter instagram username or profile link.."
+    },
+
+    "report": {
+        "title"							: "@%s Instagram Report",
+
+        "display": {
+            "username"					: "Username",
+            "followers_per_day"			: "%s followers /day",
+            "uploads_per_day"			: "%s uploads /day",
+            "followers"					: "Followers",
+            "following"					: "Following",
+            "uploads"					: "Uploads",
+            "instagram_id"				: "Instagram ID",
+            "profile_engagement"		: "Profile Engagement",
+            "engagement_rate"			: "Engagement",
+            "engagement_rate_help"		: "The engagement rate is the number of active likes / comments on each post",
+            "average_likes"				: "Average Likes",
+            "average_likes_help"		: "Average likes based on the last %s posts",
+            "average_comments"			: "Average Comments",
+            "average_comments_help"		: "Average comments based on the last %s posts",
+            "top_mentions"				: "Top @Mentions",
+            "top_mentions_help"			: "Top mentions from the last %s posts",
+            "top_posts"					: "Top Posts",
+            "top_posts_help"			: "Top posts from the last %s posts",
+            "mention_use"				: "Used in %s out of %s posts",
+            "top_hashtags"				: "Top #Hashtags",
+            "top_hashtags_help"			: "Top hashtags from the last %s posts",
+            "hashtag_use"				: "Used in %s out of %s posts",
+            "engagement"				: "Other Average Engagement",
+            "media_summary"				: "Media Stats Summary",
+            "media_summary_help"		: "Showing last %s entries.",
+            "media_created_date"		: "Posted On",
+            "media_media_url"			: "View Post",
+            "media_comments"			: "Comments",
+            "media_likes"				: "Likes",
+            "media_caption"				: "Caption",
+            "media_stats_chart"			: "Media Stats Chart",
+            "media_caption_count"		: "Caption Word Count",
+            "media_type": {
+                "image"					: "Image",
+                "sidecar"				: "Carousel",
+                "video"					: "Video"
+            },
+
+            "average_engagement_rate_chart_summary"			: "Average Engagement Rate Chart",
+            "average_engagement_rate_chart_summary_help"	: "Each value in this chart is equal to the Average Engagement Rate of the account in that specific day.",
+            "average_engagement_rate"	: "Average Engagement Rate",
+            "average_engagement_rate_short"	                : "Avg. ER",
+
+            "view_profile"				: "IG Profile",
+            "visit_website"				: "Website",
+            "followers_chart"			: "Followers evolution chart",
+            "following_chart"			: "Following evolution chart",
+            "uploads_chart"				: "Uploads evolution chart",
+            "average_engagement_rate_chart"	: "Average Engagement Rate",
+            "private"					: "Private Account",
+            "verified"					: "Instagram Verified"
+        },
+
+        "error_message": {
+            "low_followers"				: "We are sorry but we only add accounts to our database with %s or more followers..",
+            "not_found"					: "This account was not found."
+        }
+    },
+
+    "compare": {
+        "title_dynamic"					: "Compare %s with %s Instagram",
+        "header"						: "Compare YouTube Accounts",
+        "header_help"					: "Here you can input two YouTube Channels that you have access to and you can compare and analyze their statistics side by side.",
+
+        "display": {
+            "compare_text"				: "vs",
+            "search_input_placeholder"	: "Instagram Username",
+            "statistics"				: "Statistics Comparison",
+            "view_report"				: "View Report",
+            "top_posts"					: "Top Posts",
+            "top_posts_help"			: "Top posts from the last %s posts of both accounts.",
+            "engagement_rate"			: "Engagement Rate",
+            "engagement_rate_help"		: "The engagement rate is the number of active likes / comments on each post",
+            "average_likes"				: "Average Likes",
+            "average_likes_help"		: "Average likes based on the last %s posts",
+            "average_comments"			: "Average Comments",
+            "average_comments_help"		: "Average comments based on the last %s posts",
+
+            "average_engagement_rate_chart" : "Average Engagement Rate Chart",
+            "followers_chart"			: "Followers Chart"
+        }
+    },
+
+    "favorites": {
+        "display": {
+            "instagram"					: "Your favorite Instagram accounts"
+        },
+
+        "info_message": {
+            "no_favorites"				: "<i class=\"fa fa-users\"></i> You currently don't have any favorite user added to the list.. come back once you do :)"
+        }
+    },
+
+    "admin_website_settings": {
+        "input": {
+            "instagram_check_interval"			: "Check Interval ( Hours )",
+            "instagram_check_interval_help"		: "An account should be verified again after X hours",
+            "instagram_minimum_followers"		: "Minimum Followers",
+            "instagram_minimum_followers_help"	: "If the account does not meet the minimum followers, it won't be added to the database.",
+            "instagram_calculator_media_count"	: "Calculator Media Count",
+            "instagram_calculator_media_count_help" : "How many of the latest posts to process when refreshing a report. (Max 30)"
+        }
+    },
+
+    "admin_website_statistics": {
+        "header"                        : "Instagram Generated Statistics",
+        "checked_users"                 : "Total Checked Accounts",
+        "checked_media"                 : "Total Media Checks",
+        "updated_logs"                  : "Total Generated Logs"
+    },
+
+    "admin_users_management": {
+        "title"							: "Instagram Users Management",
+        "menu"							: "IG Users",
+
+        "table": {
+            "username"					: "Username",
+            "full_name"					: "Name",
+            "last_check_date"			: "Last Check",
+            "actions"					: "Actions"
+        },
+
+        "tooltip": {
+            "private"					: "Private IG",
+            "demo"						: "Demo User",
+            "verified"					: "Verified Account",
+            "out"						: "View IG Profile"
+        },
+
+        "info_message": {
+            "confirm_delete"			: "By deleting this IG User all the reports related to this user and all the logs will be deleted."
+        },
+
+        "display": {
+            "search_placeholder"		: "Search by instagram username or full account name..",
+            "instagram_users_import"	: "Import IG Users"
+        }
+    },
+
+    "email_report": {
+        "title_plus"					: "%s has gained %s followers",
+        "title_minus"					: "%s has lost %s followers",
+
+        "content": {
+            "header"					: "Report for @%s instagram",
+            "text_one"					: "Here is an overall view of what happened to the account from <strong>%s</strong> to <strong>%s</strong>.",
+            "previous"					: "Previous",
+            "latest"					: "Latest",
+            "followers"					: "Followers",
+            "following"					: "Following",
+            "uploads"					: "Uploads",
+            "average_engagement_rate"	: "Average Engagement Rate",
+            "button"					: "View Full Report"
+        }
+    }
+}

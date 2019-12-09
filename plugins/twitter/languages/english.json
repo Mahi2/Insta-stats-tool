@@ -1,0 +1,145 @@
+{
+    "global": {
+        "name"                          : "Twitter",
+        "icon"                          : "fab fa-twitter",
+        "search_placeholder"            : "Enter twitter username.."
+    },
+
+    "report": {
+        "title"							: "%s Twitter Report",
+
+        "display": {
+            "username"                  : "User",
+            "followers"                 : "Followers",
+            "following"                 : "Following",
+            "tweets"                    : "Tweets",
+            "likes"                     : "Likes",
+            "followers_per_day"         : "%s Followers /day",
+            "following_per_day"         : "%s Following /day",
+            "tweets_per_day"            : "%s Tweets /day",
+            "likes_per_day"             : "%s Tweets /day",
+            "followers_chart"           : "Followers Evolution Chart",
+            "tweets_chart"              : "Tweets Evolution Chart",
+            "average_followers"         : "Average Followers",
+            "average_following"         : "Average Following",
+            "average_tweets"            : "Average Tweets",
+            "average_likes"             : "Average Likes",
+            "extra"                     : "Extra",
+            "location"                  : "Location",
+            "created_date"              : "Created Date",
+
+            "last_tweets"               : "Last Tweets",
+            "last_tweets_help"          : "Last tweets from this account.",
+            "tweet_created_date"        : "Tweet Date",
+            "tweet_text"                : "Tweet",
+            "tweet_retweets"            : "Retweets",
+            "tweet_likes"               : "Likes",
+            "tweet_source"              : "Source",
+            "tweet_language"            : "Language",
+            "tweet_tweets_chart"        : "Tweets Stats Chart",
+
+            "verified"                  : "Twitter Verified Account"
+        },
+
+        "error_message": {
+            "low_followers"             : "We are sorry but we only allow accounts with %s or more total followers..",
+            "not_found"                 : "This Twitter Account was not found."
+        }
+    },
+
+    "compare": {
+        "title_dynamic"					: "Compare %s with %s Twitter Accounts",
+        "header"						: "Compare Twitter Accounts",
+        "header_help"					: "Here you can input two Twitter Accounts that you have access to and you can compare and analyze their statistics side by side.",
+
+        "display": {
+            "compare_text"				: "vs",
+            "search_input_placeholder"	: "Username",
+            "statistics"				: "Statistics Comparison",
+            "view_report"				: "View Report",
+            "followers"                 : "Followers",
+            "following"                 : "Following",
+            "tweets"                    : "Tweets",
+            "likes"                     : "Likes",
+            "followers_chart"           : "Followers Evolution Chart",
+            "tweets_chart"			    : "Tweets Evolution Chart"
+        }
+
+    },
+
+    "favorites": {
+        "display": {
+            "twitter"					: "Your favorite Twitter Accounts"
+        },
+
+        "info_message": {
+            "no_favorites"				: "<i class=\"fa fa-users\"></i> You currently don't have any favorite user added to the list.. come back once you do :)"
+        }
+    },
+
+    "admin_website_settings": {
+        "input": {
+            "twitter_consumer_key"              : "Consumer Key",
+            "twitter_consumer_key_help"         : "Please refer to the <a href=\"https://altumcode.link/phpanalyzer-docs\">Documentation</a> to find out where to get the key.",
+            "twitter_secret_key"                : "Secret Key",
+            "twitter_oauth_token"               : "Oauth Token",
+            "twitter_oauth_token_secret"        : "Oauth Token Secret",
+
+            "twitter_check_interval"			: "Check Interval ( Hours )",
+            "twitter_check_interval_help"		: "An account should be verified again after X hours",
+            "twitter_minimum_followers"		    : "Minimum Followers",
+            "twitter_minimum_followers_help"	: "If the account does not meet the minimum followers, it won't be added to the database.",
+            "twitter_check_tweets"		        : "Check Tweets (0-100)",
+            "twitter_check_tweets_help"	        : "Check the last X amount of last posted tweets an account. 0 is disabled and the maximum value is 100."
+        }
+    },
+
+    "admin_website_statistics": {
+        "header"                        : "Twitter Generated Statistics",
+        "checked_users"                 : "Total Checked Accounts",
+        "updated_logs"                  : "Total Generated Logs"
+    },
+
+    "admin_users_management": {
+        "title"							: "Twitter Users Management",
+        "menu"							: "Twitter Users",
+
+        "table": {
+            "username"				    : "Username",
+            "full_name"				    : "Full Name",
+            "last_check_date"			: "Last Check",
+            "actions"					: "Actions"
+        },
+
+        "tooltip": {
+            "private"					: "Private Twitter",
+            "verified"					: "Verified Twitter",
+            "demo"						: "Demo User",
+            "out"						: "View Twitter Account"
+        },
+
+        "info_message": {
+            "confirm_delete"			: "By deleting this Twitter Account all the reports related to this user and all the logs will be deleted."
+        },
+
+        "display": {
+            "search_placeholder"		: "Search by username or name.."
+        }
+    },
+
+    "email_report": {
+        "title_plus"					: "%s has gained %s followers",
+        "title_minus"					: "%s has lost %s followers",
+
+        "content": {
+            "header"					: "Report for %s's Twitter Account",
+            "text_one"					: "Here is an overall view of what happened to the account from <strong>%s</strong> to <strong>%s</strong>.",
+            "previous"					: "Previous",
+            "latest"					: "Latest",
+            "followers"				    : "Followers",
+            "following"		            : "Following",
+            "tweets"                    : "Tweets",
+            "button"					: "View Full Report"
+        }
+    }
+}

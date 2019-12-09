@@ -1,0 +1,133 @@
+{
+    "global": {
+        "name"                          : "YouTube",
+        "icon"                          : "fab fa-youtube",
+        "search_placeholder"            : "Enter youtube username or channel id.."
+    },
+
+    "report": {
+        "title"							: "%s YouTube Report",
+
+        "display": {
+            "title"                     : "Title",
+            "subscribers"               : "Subscribers",
+            "videos"                    : "Videos",
+            "views"                     : "Views",
+            "subscribers_per_day"       : "%s Subscribers /day",
+            "videos_per_day"            : "%s Videos /day",
+            "views_per_day"             : "%s Views /day",
+            "subscribers_chart"         : "Subscribers Evolution Chart",
+            "views_videos_chart"        : "Views / Videos Evolution Chart",
+            "average_subscribers"       : "Average Subscribers",
+            "average_videos"            : "Average Videos",
+            "average_views"             : "Average Views",
+            "extra"                     : "Extra",
+            "country"                   : "Country",
+            "created_date"              : "Created Date",
+            "last_videos"               : "Last Videos",
+            "last_videos_help"          : "Last uploaded videos from this youtube channel.",
+            "video_created_date"        : "Date",
+            "video_title"               : "Title",
+            "video_views"               : "Views",
+            "video_likes"               : "Likes",
+            "video_dislikes"            : "Dislikes",
+            "video_comments"            : "Comments",
+            "videos_stats_chart"        : "Videos Stats Chart"
+        },
+
+        "error_message": {
+            "low_subscribers"           : "We are sorry but we only channels to our database with %s or more total subscribers..",
+            "not_found"                 : "This YouTube Channel was not found."
+        }
+    },
+
+    "compare": {
+        "title_dynamic"					: "Compare %s with %s YouTube Channels",
+        "header"						: "Compare YouTube Accounts",
+        "header_help"					: "Here you can input two YouTube Channels that you have access to and you can compare and analyze their statistics side by side.",
+
+        "display": {
+            "compare_text"				: "vs",
+            "search_input_placeholder"	: "Channel Id / Username",
+            "statistics"				: "Statistics Comparison",
+            "view_report"				: "View Report",
+            "subscribers"               : "Subscribers",
+            "videos"                    : "Videos",
+            "views"                     : "Views",
+            "subscribers_chart"         : "Subscribers Evolution Chart",
+            "views_chart"			    : "Views Evolution Chart",
+            "videos_chart"			    : "Videos Evolution Chart"
+        }
+
+    },
+
+    "favorites": {
+        "display": {
+            "youtube"					: "Your favorite YouTube Channels"
+        },
+
+        "info_message": {
+            "no_favorites"				: "<i class=\"fa fa-users\"></i> You currently don't have any favorite user added to the list.. come back once you do :)"
+        }
+    },
+
+    "admin_website_settings": {
+        "input": {
+            "youtube_api_key"                   : "YouTube API Key",
+            "youtube_api_key_help"              : "Please refer to the <a href=\"https://altumcode.link/phpanalyzer-docs\">Documentation</a> to find out where to get the key.",
+            "youtube_check_interval"			: "Check Interval ( Hours )",
+            "youtube_check_interval_help"		: "An account should be verified again after X hours",
+            "youtube_minimum_subscribers"		: "Minimum Subscribers",
+            "youtube_minimum_subscribers_help"	: "If the account does not meet the minimum subscribers, it won't be added to the database.",
+            "youtube_check_videos"		        : "Check Videos (0-50)",
+            "youtube_check_videos_help"	        : "Check the last X amount of last uploaded videos of a channel. 0 is disabled and the maximum value is 50."
+        }
+    },
+
+    "admin_website_statistics": {
+        "header"                        : "YouTube Generated Statistics",
+        "checked_users"                 : "Total Checked Accounts",
+        "updated_logs"                  : "Total Generated Logs"
+    },
+
+    "admin_users_management": {
+        "title"							: "YouTube Users Management",
+        "menu"							: "YT Users",
+
+        "table": {
+            "youtube_id"				: "Channel Id",
+            "title"					    : "Title",
+            "last_check_date"			: "Last Check",
+            "actions"					: "Actions"
+        },
+
+        "tooltip": {
+            "demo"						: "Demo User",
+            "out"						: "View YT Channel"
+        },
+
+        "info_message": {
+            "confirm_delete"			: "By deleting this YT Channel all the reports related to this user and all the logs will be deleted."
+        },
+
+        "display": {
+            "search_placeholder"		: "Search by channel id or username or name.."
+        }
+    },
+
+    "email_report": {
+        "title_plus"					: "%s has gained %s subscribers",
+        "title_minus"					: "%s has lost %s subscribers",
+
+        "content": {
+            "header"					: "Report for %s's youtube channel",
+            "text_one"					: "Here is an overall view of what happened to the account from <strong>%s</strong> to <strong>%s</strong>.",
+            "previous"					: "Previous",
+            "latest"					: "Latest",
+            "subscribers"				: "Subscribers",
+            "views"		                : "Views",
+            "videos"                    : "Videos",
+            "button"					: "View Full Report"
+        }
+    }
+}

@@ -1,0 +1,875 @@
+[
+    {
+        "name": "abraham/twitteroauth",
+        "version": "1.0.1",
+        "version_normalized": "1.0.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/abraham/twitteroauth.git",
+            "reference": "ed70c5de0ea33439fde124d0d7109460bbb59a71"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/abraham/twitteroauth/zipball/ed70c5de0ea33439fde124d0d7109460bbb59a71",
+            "reference": "ed70c5de0ea33439fde124d0d7109460bbb59a71",
+            "shasum": ""
+        },
+        "require": {
+            "ext-curl": "*",
+            "php": "^5.6 || ^7.0 || ^7.1 || ^7.2"
+        },
+        "require-dev": {
+            "phpmd/phpmd": "~2.6",
+            "phpunit/phpunit": "~5.7",
+            "squizlabs/php_codesniffer": "~3.0"
+        },
+        "time": "2019-01-20T17:52:37+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Abraham\\TwitterOAuth\\": "src"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Abraham Williams",
+                "role": "Developer",
+                "email": "abraham@abrah.am",
+                "homepage": "https://abrah.am"
+            }
+        ],
+        "description": "The most popular PHP library for use with the Twitter OAuth REST API.",
+        "homepage": "https://twitteroauth.com",
+        "keywords": [
+            "Twitter API",
+            "Twitter oAuth",
+            "api",
+            "oauth",
+            "rest",
+            "social",
+            "twitter"
+        ]
+    },
+    {
+        "name": "cosenary/instagram",
+        "version": "v2.3",
+        "version_normalized": "2.3.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/cosenary/Instagram-PHP-API.git",
+            "reference": "fbf4c82e2cc7e9a7fd6f9fd7bba1fd2c506102a5"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/cosenary/Instagram-PHP-API/zipball/fbf4c82e2cc7e9a7fd6f9fd7bba1fd2c506102a5",
+            "reference": "fbf4c82e2cc7e9a7fd6f9fd7bba1fd2c506102a5",
+            "shasum": ""
+        },
+        "require": {
+            "ext-curl": "*",
+            "php": ">=5.2.0"
+        },
+        "time": "2014-11-29T13:10:42+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "MetzWeb\\Instagram\\": "src"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "BSD"
+        ],
+        "authors": [
+            {
+                "name": "Christian Metz",
+                "email": "christian-metz1@gmx.net",
+                "homepage": "http://metzweb.net"
+            }
+        ],
+        "description": "An easy-to-use PHP Class for accessing Instagram's API.",
+        "homepage": "https://github.com/cosenary/Instagram-PHP-API",
+        "keywords": [
+            "api",
+            "instagram"
+        ]
+    },
+    {
+        "name": "facebook/graph-sdk",
+        "version": "5.6.2",
+        "version_normalized": "5.6.2.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/facebook/php-graph-sdk.git",
+            "reference": "030f8c5b9b1a6c09e71719fd638b66ea4daa2f10"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/facebook/php-graph-sdk/zipball/030f8c5b9b1a6c09e71719fd638b66ea4daa2f10",
+            "reference": "030f8c5b9b1a6c09e71719fd638b66ea4daa2f10",
+            "shasum": ""
+        },
+        "require": {
+            "php": "^5.4|^7.0"
+        },
+        "require-dev": {
+            "guzzlehttp/guzzle": "~5.0",
+            "mockery/mockery": "~0.8",
+            "phpunit/phpunit": "~4.0"
+        },
+        "suggest": {
+            "guzzlehttp/guzzle": "Allows for implementation of the Guzzle HTTP client",
+            "paragonie/random_compat": "Provides a better CSPRNG option in PHP 5"
+        },
+        "time": "2018-02-14T23:24:51+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "5.x-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Facebook\\": "src/Facebook/"
+            },
+            "files": [
+                "src/Facebook/polyfills.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "Facebook Platform"
+        ],
+        "authors": [
+            {
+                "name": "Facebook",
+                "homepage": "https://github.com/facebook/php-graph-sdk/contributors"
+            }
+        ],
+        "description": "Facebook SDK for PHP",
+        "homepage": "https://github.com/facebook/php-graph-sdk",
+        "keywords": [
+            "facebook",
+            "sdk"
+        ]
+    },
+    {
+        "name": "google/recaptcha",
+        "version": "1.1.3",
+        "version_normalized": "1.1.3.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/google/recaptcha.git",
+            "reference": "5a56d15ca10a7b75158178752b2ad8f755eb4f78"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/google/recaptcha/zipball/5a56d15ca10a7b75158178752b2ad8f755eb4f78",
+            "reference": "5a56d15ca10a7b75158178752b2ad8f755eb4f78",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.5"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "^4.8"
+        },
+        "time": "2017-03-09T18:44:34+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.1.x-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "ReCaptcha\\": "src/ReCaptcha"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "BSD-3-Clause"
+        ],
+        "description": "Client library for reCAPTCHA, a free service that protect websites from spam and abuse.",
+        "homepage": "http://www.google.com/recaptcha/",
+        "keywords": [
+            "Abuse",
+            "captcha",
+            "recaptcha",
+            "spam"
+        ]
+    },
+    {
+        "name": "mashape/unirest-php",
+        "version": "v3.0.4",
+        "version_normalized": "3.0.4.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/Mashape/unirest-php.git",
+            "reference": "842c0f242dfaaf85f16b72e217bf7f7c19ab12cb"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/Mashape/unirest-php/zipball/842c0f242dfaaf85f16b72e217bf7f7c19ab12cb",
+            "reference": "842c0f242dfaaf85f16b72e217bf7f7c19ab12cb",
+            "shasum": ""
+        },
+        "require": {
+            "ext-curl": "*",
+            "php": ">=5.4.0"
+        },
+        "require-dev": {
+            "codeclimate/php-test-reporter": "0.1.*",
+            "phpunit/phpunit": "~4.4"
+        },
+        "suggest": {
+            "ext-json": "Allows using JSON Bodies for sending and parsing requests"
+        },
+        "time": "2016-08-11T17:49:21+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "Unirest\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "description": "Unirest PHP",
+        "homepage": "https://github.com/Mashape/unirest-php",
+        "keywords": [
+            "client",
+            "curl",
+            "http",
+            "https",
+            "rest"
+        ]
+    },
+    {
+        "name": "paquettg/php-html-parser",
+        "version": "2.0.2",
+        "version_normalized": "2.0.2.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/paquettg/php-html-parser.git",
+            "reference": "77e4a44b0916690b4300fe9abf98fd05bbba48f0"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/paquettg/php-html-parser/zipball/77e4a44b0916690b4300fe9abf98fd05bbba48f0",
+            "reference": "77e4a44b0916690b4300fe9abf98fd05bbba48f0",
+            "shasum": ""
+        },
+        "require": {
+            "ext-mbstring": "*",
+            "paquettg/string-encode": "~1.0.0",
+            "php": ">=7.1"
+        },
+        "require-dev": {
+            "mockery/mockery": "^1.2",
+            "php-coveralls/php-coveralls": "^2.1",
+            "phpunit/phpunit": "^7.5.1"
+        },
+        "time": "2019-02-10T01:35:49+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "PHPHtmlParser": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Gilles Paquette",
+                "email": "paquettg@gmail.com",
+                "homepage": "http://gillespaquette.ca"
+            }
+        ],
+        "description": "An HTML DOM parser. It allows you to manipulate HTML. Find tags on an HTML page with selectors just like jQuery.",
+        "homepage": "https://github.com/paquettg/php-html-parser",
+        "keywords": [
+            "dom",
+            "html",
+            "parser"
+        ]
+    },
+    {
+        "name": "paquettg/string-encode",
+        "version": "1.0.1",
+        "version_normalized": "1.0.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/paquettg/string-encoder.git",
+            "reference": "a8708e9fac9d5ddfc8fc2aac6004e2cd05d80fee"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/paquettg/string-encoder/zipball/a8708e9fac9d5ddfc8fc2aac6004e2cd05d80fee",
+            "reference": "a8708e9fac9d5ddfc8fc2aac6004e2cd05d80fee",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=7.1"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "^7.5.1"
+        },
+        "time": "2018-12-21T02:25:09+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "stringEncode": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Gilles Paquette",
+                "email": "paquettg@gmail.com",
+                "homepage": "http://gillespaquette.ca"
+            }
+        ],
+        "description": "Facilitating the process of altering string encoding in PHP.",
+        "homepage": "https://github.com/paquettg/string-encoder",
+        "keywords": [
+            "charset",
+            "encoding",
+            "string"
+        ]
+    },
+    {
+        "name": "paypal/rest-api-sdk-php",
+        "version": "1.13.0",
+        "version_normalized": "1.13.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/paypal/PayPal-PHP-SDK.git",
+            "reference": "192e217beed14c8e75624e821fdc8ec51e2a21f5"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/paypal/PayPal-PHP-SDK/zipball/192e217beed14c8e75624e821fdc8ec51e2a21f5",
+            "reference": "192e217beed14c8e75624e821fdc8ec51e2a21f5",
+            "shasum": ""
+        },
+        "require": {
+            "ext-curl": "*",
+            "ext-json": "*",
+            "php": ">=5.3.0",
+            "psr/log": "^1.0.0"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "^4.8.35"
+        },
+        "time": "2017-11-13T19:21:59+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "PayPal": "lib/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "Apache-2.0"
+        ],
+        "authors": [
+            {
+                "name": "PayPal",
+                "homepage": "https://github.com/paypal/rest-api-sdk-php/contributors"
+            }
+        ],
+        "description": "PayPal's PHP SDK for REST APIs",
+        "homepage": "http://paypal.github.io/PayPal-PHP-SDK/",
+        "keywords": [
+            "payments",
+            "paypal",
+            "rest",
+            "sdk"
+        ]
+    },
+    {
+        "name": "phpfastcache/phpfastcache",
+        "version": "5.0.21",
+        "version_normalized": "5.0.21.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/PHPSocialNetwork/phpfastcache.git",
+            "reference": "e546671f4374e2a421c074b5c24c732c6ec58aae"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/PHPSocialNetwork/phpfastcache/zipball/e546671f4374e2a421c074b5c24c732c6ec58aae",
+            "reference": "e546671f4374e2a421c074b5c24c732c6ec58aae",
+            "shasum": ""
+        },
+        "require": {
+            "ext-json": "*",
+            "php": ">=5.5.0",
+            "phpfastcache/phpssdb": "~1.0.0",
+            "predis/predis": "~1.1.0",
+            "psr/cache": "~1.0.0"
+        },
+        "suggest": {
+            "ext-apc": "*",
+            "ext-intl": "*",
+            "ext-mbstring": "*",
+            "ext-memcache": "*",
+            "ext-memcached": "*",
+            "ext-predis": "*",
+            "ext-redis": "*",
+            "ext-sqlite": "*"
+        },
+        "time": "2018-03-01T22:13:40+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "phpFastCache\\": "src/phpFastCache/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Khoa Bui",
+                "email": "khoaofgod@gmail.com",
+                "homepage": "http://www.phpfastcache.com",
+                "role": "Developer"
+            },
+            {
+                "name": "Georges.L",
+                "email": "contact@geolim4.com",
+                "homepage": "https://github.com/Geolim4",
+                "role": "Developer"
+            }
+        ],
+        "description": "PHP Cache Class - Reduce your database call using cache system. PhpFastCache handles a lot of drivers such as Apc(u), CouchBase, Mongodb, Files, (P)redis, Leveldb, Memcache(d), Ssdb, Sqlite, Wincache, Xcache, Zend Data Cache.",
+        "homepage": "http://www.phpfastcache.com",
+        "keywords": [
+            "LevelDb",
+            "apc",
+            "apcu",
+            "cache",
+            "cache class",
+            "caching",
+            "cookie",
+            "couchbase",
+            "files cache",
+            "memcache",
+            "memcached",
+            "mongodb",
+            "mysql cache",
+            "pdo cache",
+            "php cache",
+            "predis",
+            "redis",
+            "ssdb",
+            "wincache",
+            "xcache",
+            "zend",
+            "zend data cache",
+            "zend disk cache",
+            "zend memory cache",
+            "zend server"
+        ]
+    },
+    {
+        "name": "phpfastcache/phpssdb",
+        "version": "1.0.1",
+        "version_normalized": "1.0.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/PHPSocialNetwork/phpssdb.git",
+            "reference": "60cc285bf622664d9899da699503754259e8c970"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/PHPSocialNetwork/phpssdb/zipball/60cc285bf622664d9899da699503754259e8c970",
+            "reference": "60cc285bf622664d9899da699503754259e8c970",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.4.0"
+        },
+        "time": "2017-04-21T22:22:57+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "phpssdb\\": "src/phpssdb/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Khoa Bui",
+                "email": "khoaofgod@gmail.com",
+                "homepage": "http://www.phpfastcache.com",
+                "role": "Developer"
+            },
+            {
+                "name": "Georges.L",
+                "email": "contact@geolim4.com",
+                "homepage": "https://github.com/Geolim4",
+                "role": "Developer"
+            }
+        ],
+        "description": "PHP SSDB Driver for phpFastCache",
+        "homepage": "http://www.phpfastcache.com",
+        "keywords": [
+            "cache",
+            "driver",
+            "ssdb"
+        ]
+    },
+    {
+        "name": "phpmailer/phpmailer",
+        "version": "v6.0.6",
+        "version_normalized": "6.0.6.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/PHPMailer/PHPMailer.git",
+            "reference": "8190d73eb5def11a43cfb020b7f36db65330698c"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/PHPMailer/PHPMailer/zipball/8190d73eb5def11a43cfb020b7f36db65330698c",
+            "reference": "8190d73eb5def11a43cfb020b7f36db65330698c",
+            "shasum": ""
+        },
+        "require": {
+            "ext-ctype": "*",
+            "ext-filter": "*",
+            "php": ">=5.5.0"
+        },
+        "require-dev": {
+            "doctrine/annotations": "1.2.*",
+            "friendsofphp/php-cs-fixer": "^2.2",
+            "phpdocumentor/phpdocumentor": "2.*",
+            "phpunit/phpunit": "^4.8 || ^5.7",
+            "zendframework/zend-eventmanager": "3.0.*",
+            "zendframework/zend-i18n": "2.7.3",
+            "zendframework/zend-serializer": "2.7.*"
+        },
+        "suggest": {
+            "ext-mbstring": "Needed to send email in multibyte encoding charset",
+            "hayageek/oauth2-yahoo": "Needed for Yahoo XOAUTH2 authentication",
+            "league/oauth2-google": "Needed for Google XOAUTH2 authentication",
+            "psr/log": "For optional PSR-3 debug logging",
+            "stevenmaguire/oauth2-microsoft": "Needed for Microsoft XOAUTH2 authentication",
+            "symfony/polyfill-mbstring": "To support UTF-8 if the Mbstring PHP extension is not enabled (^1.2)"
+        },
+        "time": "2018-11-16T00:41:32+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "PHPMailer\\PHPMailer\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "LGPL-2.1"
+        ],
+        "authors": [
+            {
+                "name": "Jim Jagielski",
+                "email": "jimjag@gmail.com"
+            },
+            {
+                "name": "Marcus Bointon",
+                "email": "phpmailer@synchromedia.co.uk"
+            },
+            {
+                "name": "Andy Prevost",
+                "email": "codeworxtech@users.sourceforge.net"
+            },
+            {
+                "name": "Brent R. Matzelle"
+            }
+        ],
+        "description": "PHPMailer is a full-featured email creation and transfer class for PHP"
+    },
+    {
+        "name": "predis/predis",
+        "version": "v1.1.1",
+        "version_normalized": "1.1.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/nrk/predis.git",
+            "reference": "f0210e38881631afeafb56ab43405a92cafd9fd1"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/nrk/predis/zipball/f0210e38881631afeafb56ab43405a92cafd9fd1",
+            "reference": "f0210e38881631afeafb56ab43405a92cafd9fd1",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.9"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "~4.8"
+        },
+        "suggest": {
+            "ext-curl": "Allows access to Webdis when paired with phpiredis",
+            "ext-phpiredis": "Allows faster serialization and deserialization of the Redis protocol"
+        },
+        "time": "2016-06-16T16:22:20+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Predis\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Daniele Alessandri",
+                "email": "suppakilla@gmail.com",
+                "homepage": "http://clorophilla.net"
+            }
+        ],
+        "description": "Flexible and feature-complete Redis client for PHP and HHVM",
+        "homepage": "http://github.com/nrk/predis",
+        "keywords": [
+            "nosql",
+            "predis",
+            "redis"
+        ]
+    },
+    {
+        "name": "psr/cache",
+        "version": "1.0.1",
+        "version_normalized": "1.0.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/php-fig/cache.git",
+            "reference": "d11b50ad223250cf17b86e38383413f5a6764bf8"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/php-fig/cache/zipball/d11b50ad223250cf17b86e38383413f5a6764bf8",
+            "reference": "d11b50ad223250cf17b86e38383413f5a6764bf8",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.0"
+        },
+        "time": "2016-08-06T20:24:11+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.0.x-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Psr\\Cache\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "PHP-FIG",
+                "homepage": "http://www.php-fig.org/"
+            }
+        ],
+        "description": "Common interface for caching libraries",
+        "keywords": [
+            "cache",
+            "psr",
+            "psr-6"
+        ]
+    },
+    {
+        "name": "psr/log",
+        "version": "1.1.0",
+        "version_normalized": "1.1.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/php-fig/log.git",
+            "reference": "6c001f1daafa3a3ac1d8ff69ee4db8e799a654dd"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/php-fig/log/zipball/6c001f1daafa3a3ac1d8ff69ee4db8e799a654dd",
+            "reference": "6c001f1daafa3a3ac1d8ff69ee4db8e799a654dd",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.0"
+        },
+        "time": "2018-11-20T15:27:04+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.0.x-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Psr\\Log\\": "Psr/Log/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "PHP-FIG",
+                "homepage": "http://www.php-fig.org/"
+            }
+        ],
+        "description": "Common interface for logging libraries",
+        "homepage": "https://github.com/php-fig/log",
+        "keywords": [
+            "log",
+            "psr",
+            "psr-3"
+        ]
+    },
+    {
+        "name": "raiym/instagram-php-scraper",
+        "version": "v0.8.27",
+        "version_normalized": "0.8.27.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/postaddictme/instagram-php-scraper.git",
+            "reference": "235477e7771eabc533aed2cd115e31b055d8d63d"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/postaddictme/instagram-php-scraper/zipball/235477e7771eabc533aed2cd115e31b055d8d63d",
+            "reference": "235477e7771eabc533aed2cd115e31b055d8d63d",
+            "shasum": ""
+        },
+        "require": {
+            "ext-curl": "*",
+            "ext-json": "*",
+            "mashape/unirest-php": "3.0.*",
+            "php": ">=5.4.0",
+            "phpfastcache/phpfastcache": "5.0.*"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "5.5.*"
+        },
+        "time": "2018-12-20T04:36:02+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "InstagramScraper": "src"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "raiym",
+                "email": "r.kapishev@gmail.com"
+            }
+        ],
+        "description": "Instagram PHP Scraper. Get account information, photos and videos without any authorization",
+        "homepage": "https://github.com/raiym/instagram-php-scraper",
+        "keywords": [
+            "instagram",
+            "scraper"
+        ]
+    },
+    {
+        "name": "stripe/stripe-php",
+        "version": "v7.0.2",
+        "version_normalized": "7.0.2.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/stripe/stripe-php.git",
+            "reference": "c3eff79fd668f98170634d4f9f4dbd762b8b86a4"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/stripe/stripe-php/zipball/c3eff79fd668f98170634d4f9f4dbd762b8b86a4",
+            "reference": "c3eff79fd668f98170634d4f9f4dbd762b8b86a4",
+            "shasum": ""
+        },
+        "require": {
+            "ext-curl": "*",
+            "ext-json": "*",
+            "ext-mbstring": "*",
+            "php": ">=5.6.0"
+        },
+        "require-dev": {
+            "friendsofphp/php-cs-fixer": "^2.15",
+            "php-coveralls/php-coveralls": "^2.1",
+            "phpunit/phpunit": "^5.7",
+            "squizlabs/php_codesniffer": "^3.3",
+            "symfony/process": "~3.4"
+        },
+        "time": "2019-09-06T16:57:26+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "2.0-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Stripe\\": "lib/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Stripe and contributors",
+                "homepage": "https://github.com/stripe/stripe-php/contributors"
+            }
+        ],
+        "description": "Stripe PHP Library",
+        "homepage": "https://stripe.com/",
+        "keywords": [
+            "api",
+            "payment processing",
+            "stripe"
+        ]
+    }
+]

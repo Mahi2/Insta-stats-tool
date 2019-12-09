@@ -1,0 +1,114 @@
+{
+    "global": {
+        "name"                          : "Facebook",
+        "icon"                          : "fab fa-facebook",
+        "search_placeholder"            : "Enter facebook page username.."
+    },
+
+    "report": {
+        "title"							: "%s Facebook Report",
+
+        "display": {
+            "username"                  : "Username",
+            "likes"                     : "Likes",
+            "likes_per_day"             : "%s likes /day",
+            "likes_chart"               : "Likes Evolution Chart",
+            "followers_chart"           : "Followers Evolution Chart",
+            "followers"                 : "Followers",
+            "followers_per_day"         : "%s followers /day",
+            "average_likes"             : "Average Likes",
+            "average_followers"         : "Average Followers",
+            "type"                      : "Type",
+            "verified"                  : "Facebook Verified Page"
+        },
+
+        "error_message": {
+            "low_likes"                 : "We are sorry but we only add pages to our database with %s or more total likes.."
+        }
+    },
+
+    "compare": {
+        "title_dynamic"					: "Compare %s with %s Facebook Pages",
+        "header"						: "Compare Facebook Accounts",
+        "header_help"					: "Here you can input two facebook accounts that you have access to and you can compare and analyze their statistics side by side.",
+
+        "display": {
+            "compare_text"				: "vs",
+            "search_input_placeholder"	: "Facebook Page",
+            "statistics"				: "Statistics Comparison",
+            "view_report"				: "View Report",
+            "followers"		            : "Followers",
+            "likes"     				: "Likes",
+
+            "followers_chart"           : "Followers Evolution Chart",
+            "likes_chart"			    : "Likes Evolution Chart"
+        }
+
+    },
+
+    "favorites": {
+        "display": {
+            "facebook"					: "Your favorite Facebook Pages"
+        },
+
+        "info_message": {
+            "no_favorites"				: "<i class=\"fa fa-users\"></i> You currently don't have any favorite user added to the list.. come back once you do :)"
+        }
+    },
+
+    "admin_website_settings": {
+        "input": {
+            "facebook_check_interval"			: "Check Interval ( Hours )",
+            "facebook_check_interval_help"		: "An account should be verified again after X hours",
+            "facebook_minimum_likes"		    : "Minimum Likes",
+            "facebook_minimum_likes_help"	    : "If the account does not meet the minimum likes, it won't be added to the database."
+        }
+    },
+
+    "admin_website_statistics": {
+        "header"                        : "Facebook Generated Statistics",
+        "checked_users"                 : "Total Checked Accounts",
+        "updated_logs"                  : "Total Generated Logs"
+    },
+
+    "admin_users_management": {
+        "title"							: "Facebook Users Management",
+        "menu"							: "FB Users",
+
+        "table": {
+            "username"					: "Username",
+            "name"					    : "Name",
+            "last_check_date"			: "Last Check",
+            "actions"					: "Actions"
+        },
+
+        "tooltip": {
+            "demo"						: "Demo User",
+            "out"						: "View FB Page",
+            "verified"                  : "Verified Page"
+        },
+
+        "info_message": {
+            "confirm_delete"			: "By deleting this FB User all the reports related to this user and all the logs will be deleted."
+        },
+
+        "display": {
+            "search_placeholder"		: "Search by username or name.."
+        }
+    },
+
+    "email_report": {
+        "title_plus"					: "%s has gained %s likes",
+        "title_minus"					: "%s has lost %s likes",
+
+        "content": {
+            "header"					: "Report for %s's facebook page",
+            "text_one"					: "Here is an overall view of what happened to the account from <strong>%s</strong> to <strong>%s</strong>.",
+            "previous"					: "Previous",
+            "latest"					: "Latest",
+            "likes"					    : "Likes",
+            "followers"		            : "Followers",
+            "button"					: "View Full Report"
+        }
+    }
+}

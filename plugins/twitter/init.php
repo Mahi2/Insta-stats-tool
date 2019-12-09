@@ -1,0 +1,3 @@
+<?php
+defined('ALTUMCODE') || die();
+
