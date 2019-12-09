@@ -44,3 +44,32 @@ $('#url').on('change', event => {
         $(event.currentTarget).val(`${input}/`);
     }
 });
+
+/* Form handling for the installation */
+$('#setup_form').on('submit', event => {
+    let data = $('#setup_form').serialize();
+
+    $.ajax({
+        type: 'POST',
+        url: 'install.php',
+        data: data,
+        success: data => {
+            if(data.status == 'error') {
+                alert(data.message);
+            }
+
+            else if(data.status == 'success') {
+                $('#sidebar-ul a[href="#finish"]').trigger('click');
+
+                /* Add the written url in the finish section */
+                let url = $('#setup_form [name="url"]').val();
+
+                $('#final_url').text(url).attr('href', url);
+
+            }
+        },
+        dataType: 'json'
+    });
+
+    event.preventDefault();
+});
