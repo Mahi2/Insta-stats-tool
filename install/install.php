@@ -16,3 +16,11 @@ foreach($required_fields as $field) {
         ]));
     }
 }
+
+/* Make sure the database details are correct */
+$database = @new mysqli(
+    $_POST['database_host'],
+    $_POST['database_username'],
+    $_POST['database_password'],
+    $_POST['database_name']
+);
