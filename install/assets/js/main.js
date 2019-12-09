@@ -73,3 +73,20 @@ $('#setup_form').on('submit', event => {
 
     event.preventDefault();
 });
+
+$(document).ready(() => {
+    /* Submit disable after 1 click */
+    $('[type=submit][name=submit]').on('click', (event) => {
+        $(event.currentTarget).addClass('disabled');
+
+        let text = $(event.currentTarget).text();
+        let loader = '<div class="spinner-grow spinner-grow-sm"><span class="sr-only">Loading...</span></div>';
+        $(event.currentTarget).html(loader);
+
+        setTimeout(() => {
+            $(event.currentTarget).removeClass('disabled');
+            $(event.currentTarget).text(text);
+        }, 3000);
+
+    });
+});
