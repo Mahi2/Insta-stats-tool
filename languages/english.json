@@ -51,4 +51,490 @@
 			"invalid_account"			: "This user does not exist!",
 			"basic"						: "We could not perform your requested command!",
 			"system_issues"				: "There are some system issues at the moment, please contact an admin and tell him about this problem."
+        },
+        "menu": {
+			"home"						: "Home",
+			"logout"					: "Logout",
+			"settings"					: "Settings",
+			"admin"						: "Admin",
+			"website"					: "Visit Site",
+			"search_title"				: "Try it right now.",
+			"search_title2"				: "Check another account",
+			"instagram"					: "Instagram",
+			"admin_settings"			: "Settings",
+			"search_placeholder" 		: "Enter instagram username or profile link.."
 		},
+
+		"date": {
+			"datetime_format"			: "Y-m-d",
+			"SET_THIS_AT_YOUR_OWN_RESPONSIBILITY": "Make sure to add only valid datetime formats.",
+
+			"x_days"					: "%s days",
+			"x_months"					: "%s months",
+			"year"						: "1 year",
+			"x_years"					: "%s years",
+			"year_and_half"				: "1 year and half",
+
+			"daily"						: "Daily",
+			"weekly"					: "Weekly",
+			"monthly"					: "Monthly",
+
+			"short_day_of_week": {
+				"1"						: "Mon",
+				"2"						: "Tue",
+				"3"						: "Wed",
+				"4"						: "Thu",
+				"5"						: "Fri",
+				"6"						: "Sat",
+				"7"						: "Sun"
+			}
+		},
+
+		"number": {
+			"decimal_point"				: ".",
+			"thousands_separator"		: ","
+		},
+
+		"accessibility": {
+			"toggle_navigation"			: "Toggle navigation",
+			"logo_alt"					: "Website Logo",
+			"captcha_image_alt"			: "Captcha",
+			"captcha_input"				: "Captcha Field"
+		},
+
+		"email": {
+			"admin_new_user_email_notification_subject"		: "New User Registered!",
+			"admin_new_user_email_notification_body"		: "Hey!<br /><br />A new user just registered to the website!<br /><br />Welcome <strong>%s</strong> with the <strong>%s</strong> username to your website!",
+			"admin_new_payment_email_notification_subject"	: "New Payment via %s of %s %s!",
+			"admin_new_payment_email_notification_body"		: "Hey!<br /><br />A user just paid <strong>%s %s</strong> to the website!<br /><br />Here's to more earnings!"
+		},
+
+		"footer": {
+			"facebook"					: "Facebook",
+			"twitter"					: "Twitter",
+			"instagram"					: "Instagram",
+			"youtube"					: "YouTube"
+		}
+	},
+
+	"page": {
+		"display": {
+			"edit"						: "Edit Page"
+		},
+
+		"info_message": {
+			"invalid_page"				: "The page you're looking for does not exist!"
+		}
+	},
+
+	"favorites": {
+		"title"							: "Your Favorites",
+		"header"						: "Favorites",
+		"menu"							: "Favorites",
+
+		"no_favorites": {
+			"message"					: "You don't have any favorites, maybe want to track your competitors?",
+			"button"					: "Start tracking"
+		}
+	},
+
+	"compare": {
+		"title"							: "Compare Users",
+		"title_dynamic"					: "Compare %s with %s Instagram",
+		"header"						: "Compare Instagram Accounts",
+		"header_help"					: "Here you can input two instagram accounts that you have access to and you can compare and analyze their statistics side by side.",
+
+		"display": {
+			"compare_text"				: "vs",
+			"search_input_placeholder"	: "Instagram Username",
+			"statistics"				: "Statistics Comparison",
+			"view_report"				: "View Report",
+			"top_posts"					: "Top Posts",
+			"top_posts_help"			: "Top posts from the last %s posts of both accounts.",
+			"engagement_rate"			: "Engagement Rate",
+			"engagement_rate_help"		: "The engagement rate is the number of active likes / comments on each post",
+			"average_likes"				: "Average Likes",
+			"average_likes_help"		: "Average likes based on the last %s posts",
+			"average_comments"			: "Average Comments",
+			"average_comments_help"		: "Average comments based on the last %s posts",
+
+			"average_engagement_rate_chart" : "Average Engagement Rate Chart",
+			"followers_chart"			: "Followers Chart"
+		},
+
+		"info_message": {
+			"private_account"			: "This is a private account, can't display this data..",
+			"user_not_found"			: "It seems that <strong>%s</strong> does not exist in our database yet, would you like to <a href=\"report/%s\">Add %s</strong></a> to our database?"
+		},
+
+		"error_message": {
+			"embed"						: "We could not fetch the embed post.",
+			"no_access"					: "You do not have access to these statistics unless you login.",
+			"no_access_purchase"		: "You must have at least one Report purchased of either one of accounts that you want to check."
+		}
+	},
+
+	"report": {
+		"display": {
+			"comparison"				: "%s%s compared to last check.",
+
+			"add_favorite"				: "<span data-toggle=\"tooltip\" title=\"Add to favorites\"><i class=\"far fa-heart\"></i></span>",
+			"remove_favorite"			: "<span data-toggle=\"tooltip\" title=\"Remove from favorites\"><i class=\"fa fa-heart text-danger\"></i></span>",
+
+			"actions"					: "Actions",
+			"compare"					: "Compare",
+			"pdf_link"					: "PDF Export",
+			"api_link"					: "API Link",
+
+			"statistics_summary"        : "Statistics Summary",
+			"summary"					: "Account Stats Summary",
+			"summary_help"				: "Showing last 15 entries.",
+			"total_summary"				: "<i class=\"fa fa-list-ol\"></i> Total Summary",
+
+			"projections"				: "Future Projections",
+			"no_projections"			: "There is not enough data to generate future projections, please come back tomorrow.",
+			"projections_help"			: "Here you can see the approximated future projections based on your previous days averages",
+			"time_until"				: "Time Until",
+			"time_until_now"			: "Current Stats",
+			"average_calculations"		: "<i class=\"fa fa-calculator\"></i> Based on an average of",
+
+			"private_account"			: "This is a private account",
+			"private_account_help"		: "We can't get in depth details for private accounts, make sure your account is public before checking for the full report.",
+			"unlock"					: "<i class=\"fa fa-unlock\"></i> Unlock report",
+			"unlock_helper"				: "Get access for all the informations available for <strong>%s</strong>",
+			"unlock_helper2"			: "Unlock report for just <strong>%s</strong> point(s). ( 1 Point = 1 %s )",
+			"unlock_helper3"			: "The report will be available for <strong>%s</strong> days after the purchase.",
+
+			"last_successful_check_date": "Last successful check date: %s",
+			"last_check_date"			: "Last check date: %s",
+			"time_zone"					: "Time Zone: %s",
+			"date"						: "Date",
+			"date_help"					: "Format: %s"
+		},
+
+		"state": {
+			"not_checked_full_name"		: "This report was not yet generated",
+			"not_checked_description"	: "This report was not yet generated, click on the report to calculate it"
+		},
+
+		"button": {
+			"login"						: "Login",
+			"register"					: "Register",
+			"purchase"					: "Unlock report",
+			"refresh"					: "I made my profile public",
+			"date"						: "Select Range"
+		},
+
+		"info_message": {
+			"recently_generated"		: "This report was recently generated by the system and history data is minimal at the moment."
+		},
+
+		"error_message": {
+			"low_followers"				: "We are sorry but we only add accounts to our database with %s or more followers.."
+		},
+
+		"statistics_compare": {
+			"title"						: "Engagement Rates on Instagram",
+			"subtitle"					: "These are overall / average engagement rates found on Instagram. Statistics based on analysis of more than 1 million influencer profiles."
+		}
+	},
+
+
+	"account_settings": {
+		"title"							: "Account Settings",
+		"menu"							: "Account Settings",
+		"header"						: "Account Settings",
+		"header2"						: "Change Password",
+		"header2_help"					: "If you do not want to change your password, do not fill any of those fields below.",
+		"header3"						: "Delete Account",
+		"header3_help"					: "By deleting the account, all of your stored data will be deleted. This action is irreversible once done.",
+
+		"display": {
+			"last_activity"				: "Last active: "
+		},
+
+		"input": {
+			"current_password"			: "Current Password",
+			"new_password"				: "New Password",
+			"repeat_password"			: "Repeat Password",
+			"email"						: "Email",
+			"username"					: "Username",
+			"name"						: "Name",
+			"email_reports"				: "Enable Email Reports",
+			"email_reports_help"		: "The system will send you <strong>%s</strong> updates about your tracked accounts"
+		},
+
+		"error_message": {
+			"invalid_current_password"	: "Your current password is not valid!",
+			"short_password"			: "Your password is too short, you must have at least 6 characters!",
+			"passwords_not_matching"	: "Your entered passwords do not match",
+			"username_length"			: "Username must be between 3 and 32 characters!",
+			"user_exists"				: "We're sorry, but the <strong>%s</strong> username is already taken!"
+		},
+
+		"success_message": {
+			"account_updated"			: "Your account was updated!"
+		}
+	},
+
+
+	"reset_password": {
+		"title"							: "Reset Password",
+		"header"						: "Reset Password",
+
+		"input": {
+			"new_password"				: "New Password",
+			"repeat_password"			: "Repeat Password"
+		},
+
+		"error_message": {
+			"short_password"			: "Your password is too short, you must have at least 6 characters!",
+			"passwords_not_matching"	: "Your entered passwords do not match"
+		},
+
+		"success_message": {
+			"password_updated"			: "Your password has been updated!"
+		}
+	},
+
+
+	"login": {
+		"menu"							: "Login",
+		"title"							: "Login",
+		"header"						: "Login",
+
+		"input": {
+			"username" 					: "Username or Email Address",
+			"password"					: "Password",
+			"remember_me"				: "Remember me"
+		},
+
+		"button": {
+			"login"						: "Sign In",
+			"lost_password"				: "Lost Password",
+			"resend_activation"			: "Resend Activation",
+			"facebook"					: "%s Login",
+			"instagram"					: "%s Login "
+		},
+
+		"info_message": {
+			"logged_in"					: "Welcome back, you are now logged in!"
+		},
+
+		"error_message": {
+			"wrong_login_credentials"	: "Your username - password combination is not valid!",
+			"user_not_active"			: "Your account is not confirmed or banned!"
+
+		}
+	},
+
+
+	"lost_password": {
+		"title"							: "Lost Password",
+		"header"						: "Lost Password",
+
+		"input": {
+			"email" 					: "Email"
+		},
+
+		"notice_message": {
+			"success"					: "We sent an email to that accounts address if an account is registered with it!"
+		}
+	},
+
+	"resend_activation": {
+		"title"							: "Resend Activation",
+		"header"						: "Resend Activation Email",
+
+		"input": {
+			"email" 					: "Email"
+		},
+
+		"notice_message": {
+			"success"					: "We sent an email to that accounts address if an account is registered with it!"
+		}
+	},
+
+
+	"register": {
+		"title"							: "Register",
+		"menu"							: "Register",
+		"header"						: "Register",
+		"subheader"						: "Already have an account?",
+
+		"input": {
+			"username" 					: "Username",
+			"name"						: "Name",
+			"email"						: "Email",
+			"password"					: "Password",
+			"repeat_password"			: "Repeat Password"
+		},
+
+		"error_message": {
+			"username_length"			: "Username must be between 3 and 32 characters!",
+			"name_length"				: "Name must be between 3 and 32 characters!",
+			"user_exists"				: "We're sorry, but the <strong>%s</strong> username is already taken!",
+			"email_exists"				: "We're sorry, but that email is already used!",
+			"invalid_email"				: "You entered an invalid email!",
+			"short_password"			: "Your password is too short, you must have at least 6 characters!",
+			"passwords_not_matching"	: "Your entered passwords do not match",
+			"username_characters"		: "You can only use letters, digits and the '.', '_' characters for your username field",
+			"email_is_null"				: "Your facebook account doesn't have an email associated with it, we could not finish the Facebook login process."
+		},
+
+
+		"success_message": {
+			"registration"				: "Your account has been created, check your email for the activation link!",
+			"login"						: "Welcome to our platform, we are grateful to have you here!"
+		}
+	},
+
+
+	"dashboard": {
+		"title"							: "Dashboard",
+		"menu"							: "Dashboard",
+
+		"display": {
+			"header"					: "Welcome to %s!",
+			"text"						: "This text is editable from the language file :)",
+			"store"						: "Account Balance of %s total points",
+			"joined"					: "Joined %s",
+			"favorites"					: "Total favorites %s",
+			"reports"					: "Total unlocked reports %s"
+		},
+		"sidebar": {
+			"premium"					: "Premium",
+			"header"					: "Hey, %s 🔥",
+			"text"						: "Here are some useful links below <i class=\"fa fa-arrow-down\"></i>"
+		}
+
+	},
+
+	"my_reports": {
+		"title"							: "My Reports",
+		"menu"							: "My Reports",
+		"header"						: "My Reports",
+		"subheader"						: "List with all the %s reports you have currently unlocked.",
+
+		"table": {
+			"username"					: "Username",
+			"expiration_date"			: "Expiration",
+			"no_expiration_date"		: "Does not expire",
+			"nr"						: "#"
+		},
+
+		"no_unlocked_reports": {
+			"message"					: "You currently don't have any unlocked reports..",
+			"button"					: "Start analyzing"
+		}
+
+	},
+
+	"api_documentation": {
+		"title"							: "API Documentation",
+		"menu"							: "API Documentation",
+		"header"						: "API Documentation",
+		"subheader"						: "Here you can find how you can use the API for your unlocked reports.",
+
+		"display": {
+			"api_link"					: "API Link for %s",
+			"text1"						: "The API is used to get current information of a generated report that is available to your account.",
+			"api_key"					: "API Key",
+			"api_url"					: "API Url",
+			"format"					: "URL Format",
+			"method"					: "Method",
+			"url_params"				: "URL Query Params",
+			"url_params_help"			: "You are required to specify all these params in order to get a valid response.",
+			"required"					: "Required",
+			"source_help"				: "The source parameter accepts the name of the source of details. (ex: instagram )",
+			"success_response"			: "Success Response",
+			"success_response_help"		: "Here is how a sample request response should look like.",
+			"failed_response"			: "Failed Response",
+			"failed_response_help"		: "Here is how a failed request response will look like.",
+			"php_example"				: "PHP Simple Example",
+			"php_example_help"			: "A super easy example on how you can implement this with PHP."
+		},
+
+		"table": {
+			"username"					: "Username",
+			"date"						: "Date",
+			"expiration_date"			: "Expiration Date",
+			"no_expiration_date"		: "N/A",
+			"nr"						: "#"
+		},
+
+		"info_message": {
+			"no_unlocked_reports"			: "You currently don't have any unlocked reports.."
+		}
+
+	},
+
+	"store": {
+		"title"								: "Store",
+		"menu"								: "Store",
+		"header"							: "Store",
+		"header_transactions"				: "Transactions",
+		"confirm_purchase"					: "Are you sure you want to purchase this package ?",
+		"confirm_unlock_report"				: "Are you sure you want to unlock this report ?",
+
+		"display": {
+			"state"							: "<strong>Account Balance:</strong> %s Points.",
+			"add_funds"						: "Add funds through %s",
+			"purchase"						: "Purchase now",
+			"info"							: "1 Point is equal to 1 unit of the website's currency ( %s )."
+		},
+
+
+		"no_ads": {
+			"title"							: "No Ads",
+			"description"					: "With the No Ads package you will not get any ads on the website and you show your support to the team for <strong>%s Points</strong>"
+		},
+
+		"table": {
+			"type"							: "",
+			"email"							: "Email",
+			"date"							: "Date",
+			"name"							: "Full Name",
+			"amount"						: "Amount",
+			"currency"						: "",
+			"nr"							: "#"
+		},
+
+		"info_message": {
+			"stripe_not_available"			: "We are sorry but Stripe payments are disabled at this moment in time..",
+			"paypal_not_available"			: "We are sorry but Paypal payments are disabled at this moment in time..",
+			"canceled"						: "It appears you have canceled your order, we couldn't process your payment.",
+			"no_transactions"				: "At the moment there are no transactions to show.."
+		},
+
+		"button": {
+			"pay"							: "Pay"
+		},
+
+		"paypal": {
+			"title"							: "PayPal",
+			"header"						: "Pay with PayPal",
+			"amount"						: "Select an amount of points"
+		},
+
+		"stripe": {
+			"title"							: "Stripe",
+			"header"						: "Pay with Stripe",
+			"amount"						: "Select an amount of points",
+			"description"					: "Points for the account"
+		},
+
+		"error_message": {
+			"already_no_ads"				: "It appears that your account already purchased the no ads package, you can't buy this package again.",
+			"instagram_user_not_found"		: "Instagram user not found..",
+			"normal"						: "Something happened while we tried to process your payment..",
+			"not_enough_funds"				: "You don't have enough funds! Add more funds to your account and get back :)",
+			"allowed_packages"				: "Please try purchasing a package that is listed below."
+		},
+
+		"success_message": {
+			"paid"							: "You just got new funds into your account!",
+			"purchased"						: "You just purchased the package!",
+			"report_unlocked"				: "The unlock was successful, enjoy the statistics!"
+		}
+	},
