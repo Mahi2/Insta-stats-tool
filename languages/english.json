@@ -28,4 +28,27 @@
 			"error"						: "Error!",
 			"info"						: "Info!",
 			"success"					: "Success!"
+        },
+        "info_message": {
+			"confirm_delete"			: "Are you sure you want to delete this ?",
+			"premium_access"			: "We are sorry but you can only access those features if you have a premium account.."
+		},
+
+		"success_message": {
+			"basic"						: "Your requested command was performed successfully!",
+			"account_activated"			: "Your account was activated! Welcome!"
+		},
+
+		"error_message": {
+			"directory_not_writeable"	: "Directory is not writable <strong>%s</strong>",
+			"empty_fields"				: "You must fill all the fields!",
+			"invalid_captcha"			: "The captcha code is not valid!",
+			"invalid_file_type"			: "Invalid file type!",
+			"invalid_image_size"		: "You're uploaded image is exceeding the size limit ( %s )!",
+			"invalid_token"				: "The action could not be finished because the protector has expired, please try again!",
+			"command_denied"			: "You don't have access to this command!",
+			"page_access_denied"		: "You can't access this page!",
+			"invalid_account"			: "This user does not exist!",
+			"basic"						: "We could not perform your requested command!",
+			"system_issues"				: "There are some system issues at the moment, please contact an admin and tell him about this problem."
 		},
