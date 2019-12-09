@@ -31,3 +31,20 @@ if($database->connect_error) {
         'message' => 'The database connection has failed!'
     ]));
 }
+
+/* Make sure the license is correct */
+$response = Unirest\Request::post($altumcode_api, [], [
+    'license'           => $_POST['license'],
+    'url'               => $_POST['url'],
+    'product_version'   => PRODUCT_VERSION,
+    'product_name'      => PRODUCT_NAME,
+    'client_email'      => $_POST['client_email'],
+    'client_name'       => $_POST['client_name']
+]);
+$response->body->status = 'success';
+if($response->body->status == 'error') {
+    die(json_encode([
+        'status' => 'error',
+        'message' => $response->body->message
+    ]));
+}
