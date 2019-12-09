@@ -804,4 +804,268 @@
 		"error_message": {
 			"invalid_page"				: "That page wasn't found!"
 		}
+    },
+    "admin_proxy_edit": {
+		"title"							: "Edit Proxy",
+		"header"						: "Edit Proxy",
+
+		"input": {
+			"address"					: "IP Address",
+			"port"						: "Port",
+			"auth_help"					: "Leave the Username and Password fields empty if the proxy has no authentication",
+			"username"					: "Username",
+			"password"					: "Password",
+			"note"						: "Note",
+			"note_help"					: "Small note about the proxy, ex: a name, an identifier for you",
+			"method"					: "Method",
+			"method_help"				: "Method of connection to the proxy.",
+			"successful_requests"		: "Successful Requests",
+			"failed_requests"			: "Failed Requests",
+			"total_successful_requests"	: "Total Successful Requests",
+			"total_failed_requests"		: "Total Failed Requests",
+			"date"						: "Added Date",
+			"last_date"					: "Last Request Date"
+		},
+
+		"button": {
+			"submit"					: "Submit & Test"
+		},
+
+		"error_message": {
+			"invalid_page"				: "That proxy wasn't found!"
+		}
+	},
+
+
+	"admin_user_edit": {
+		"title"							: "Edit User",
+		"header"						: "Edit User",
+		"header_password"				: "Change Password",
+		"subheader_password"			: "Leave it empty if you don't want to change the password!",
+		"header_transactions"			: "Transactions",
+
+		"input": {
+			"points"					: "Current Points",
+			"username"					: "Username",
+			"name"						: "Name",
+			"email"						: "Email",
+			"status"					: "Account Status",
+			"status_active"				: "Active",
+			"status_disabled"			: "Disabled",
+			"type"						: "User Privileges",
+			"type_help"					: "Admin users will have the same privileges as you, be careful!",
+			"type_admin"				: "Admin",
+			"type_user"					: "User",
+			"new_password"				: "New Password",
+			"repeat_password"			: "Repeat Password",
+			"no_ads"					: "No ads",
+			"no_ads_help"				: "This manually enables the No Ads package",
+			"last_activity"				: "Last Active"
+		},
+
+		"error_message": {
+			"name_length"				: "Name must be between 3 and 32 characters!",
+			"invalid_account"			: "That account wasn't found!",
+			"email_exists"				: "We're sorry, but that email is already used!",
+			"invalid_email"				: "You entered an invalid email!",
+			"short_password"			: "Your password is too short, you must have at least 6 characters!",
+			"passwords_not_matching"	: "Your entered passwords do not match"
+		}
+	},
+
+	"admin_user_view": {
+		"title"							: "View User",
+		"header"						: "View User",
+		"header_reports"				: "Unlocked Reports",
+		"subheader_reports"				: "Currently active and unlocked reports by this user.",
+		"header_favorites"				: "Favorite Accounts",
+		"subheader_favorites"			: "Accounts that this user has favorited.",
+		"header_transactions"			: "Transactions",
+
+		"input": {
+			"points"					: "Current Points",
+			"username"					: "Username",
+			"name"						: "Name",
+			"email"						: "Email",
+			"status"					: "Account Status",
+			"status_active"				: "Active",
+			"status_disabled"			: "Disabled",
+			"no_ads"					: "No ads",
+			"last_activity"				: "Last Active",
+			"api_key"					: "API Key",
+			"email_reports"				: "Email Reports Active"
+		},
+
+		"table": {
+			"username"					: "Username",
+			"date"						: "Date",
+			"expiration_date"			: "Expiration Date",
+			"no_expiration_date"		: "N/A",
+			"type"						: "Type",
+			"email"						: "Email",
+			"name"						: "Full Name",
+			"amount"					: "Amount",
+			"currency"					: "",
+			"nr"						: "#"
+		},
+
+		"info_message": {
+			"no_transactions"			: "At the moment there are no transactions to show..",
+			"no_unlocked_reports"		: "No active reports for this user at the moment..",
+			"no_favorites"				: "No favorites for this user.."
+		}
+
+	},
+
+	"admin_website_settings": {
+		"title"							: "Website Settings",
+		"menu"							: "Website Settings",
+		"header"						: "Website Settings",
+
+		"input": {
+			"title"						: "Website title",
+			"default_language"			: "Default Language",
+			"default_language_help"		: "To add more languages, please consult the documentation.",
+			"logo"						: "Logo",
+			"logo_help"					: "jpg, jpeg, png and svg accepted. Recommended size: Max height of 40px and transparrent.",
+			"logo_remove"				: "Remove Logo",
+			"favicon"					: "Favicon",
+			"favicon_help"				: "jpg, jpeg, png and ico accepted.",
+			"favicon_remove"			: "Remove Favicon",
+			"meta_description"			: "Index Meta Description",
+			"meta_keywords"				: "Index Meta Keywords",
+			"analytics_code"			: "Google Analytics Tracking Code",
+			"analytics_code_help"		: "Insert only the ID. Example: UA-22222222-33",
+			"email_confirmation"		: "Registration confirmation needed via email",
+			"email_reports"				: "Email Reports",
+			"email_reports_help"		: "Enabling email reports will trigger the cron job to send updates to users about their instagram accounts progress. <strong>The cron must be set up in order for this to work</strong>",
+			"email_reports_default"		: "Email Reports Enabled By Default",
+			"email_reports_default_help": "If enabled, all new users will have email reports activated by default.",
+			"email_reports_frequency"	: "Email Reports Frequency",
+			"email_reports_favorites"	: "Enable Favorites Email Reports",
+			"email_reports_favorites_help" : "By enabling this, people who just simply favorite an account will get email notifications too. <strong>This only works when the price of the reports is set to 0 (disabled).</strong>",
+			"time_zone"					: "Time Zone",
+			"directory"					: "Directory Mode",
+			"directory_help"			: "Set the permissions of who can access the directory page of IG Users.",
+			"directory_pagination"		: "Directory Pagination",
+			"directory_pagination_help"	: "How many results you want to see per show more in the Directory page.",
+			"ads_help"					: "These fields accept text or html.",
+			"index_ad"					: "Ad Code for the Index page",
+			"report_ad"					: "Ad Code for the Report page",
+			"account_sidebar_ad"		: "Ad Code for the Sidebar",
+			"recaptcha"					: "ReCaptcha",
+			"recaptcha_help"			: "If enabled, you must add the public and private key from Google Recaptcha API",
+			"public_key"				: "Public Key",
+			"private_key"				: "Private Key",
+			"social_help"				: "Social links to be displayed in the footer of the website. Enter only the id / name of the page",
+			"facebook"					: "Facebook",
+			"twitter"					: "Twitter",
+			"instagram"					: "Instagram",
+			"youtube"					: "Youtube",
+			"smtp_help"					: "If there are no values entered in this field then the system will try to use the default mail function.",
+			"smtp_host"					: "SMTP Host",
+			"smtp_port"					: "SMTP Port",
+			"smtp_user"					: "SMTP User",
+			"smtp_pass"					: "SMTP Pass",
+			"smtp_auth"					: "Authentication",
+			"smtp_encryption"			: "Encryption",
+			"smtp_from"					: "From (email)",
+			"smtp_from_help"			: "The email that the users get the email from / the 'reply-to' email ( registration / email activation / lost password )",
+			"facebook_login"			: "Enable Facebook Registration / Login",
+			"facebook_app_id"			: "Facebook App Id",
+			"facebook_app_secret"		: "Facebook App Secret",
+			"instagram_login"			: "Enable Instagram Registration / Login",
+			"instagram_client_id"		: "Instagram Client Id",
+			"instagram_client_secret"	: "Instagram Client Secret",
+			"store_paypal_mode"			: "Paypal Mode",
+			"store_paypal_mode_help"	: "live - production, sandbox - testing purposes",
+			"store_paypal_client_id"	: "Paypal Client ID",
+			"store_help"				: "Please refer to the <a href=\"https://altumcode.link/phpanalyzer-docs\">Documentation</a> to find out where to get the keys.",
+			"store_paypal_secret"		: "Paypal Secret",
+			"store_stripe_publishable_key"		: "Stripe Publishable Key",
+			"store_stripe_secret_key"			: "Stripe Secret Key",
+			"store_stripe_webhook_secret"		: "Stripe Webhook Secret",
+			"store_currency"					: "Currency",
+			"store_unlock_report_price"			: "Unlock Report Price ( points )",
+			"store_unlock_report_price_help"	: "Set to 0 if you want to make all reports available to everyone. Setting to 0 will make the cron check all the reports available, not only those which are purchased.",
+			"store_unlock_report_time"			: "Unlock Report Time ( days )",
+			"store_unlock_report_time_help"		: "Set the amount of time a report is available to the user after purchasing. Set to 0 if you want the user to have the Report for an ulimited time after purchase.",
+			"store_user_default_points"			: "Default points for Users",
+			"store_user_default_points_help"	: "Default points that a user gets upon registering.",
+			"store_no_ads_price"				: "No Ads Package Price ( points )",
+
+			"cron_url"							: "Cron Url",
+			"cron_url_help"						: "The cron job url that you need to use when creating your cronjob.",
+			"cron_help"							: "Please refer to the <a href=\"https://altumcode.link/phpanalyzer-docs\">Documentation</a> to find out how to setup the Cron.",
+			"cron_queries"						: "Cron Queries per Execution",
+			"cron_queries_help"					: "How many accounts to check in one Cron Execution. For optimum performance, select a value between <strong>1</strong> to <strong>5</strong>",
+			"cron_mode"							: "Cron Mode",
+			"cron_mode_help"					: "ACTIVE - The cronjob will update only active reports. <br /> ALL - The cronjob will update all the users.",
+			"cron_auto_add_missing_logs"		: "Calculate & Add Missing Reports Logs *BETA*",
+			"cron_auto_add_missing_logs_help"	: "When enabled the system cron will try to automatically calculate logs that were not added. Ex: If a report does not get updated for 3 days and the fourth day the cron runs on that report, it will automatically calculate approximately the other 3 days as well.",
+
+			"email_template_subject"			: "Subject",
+			"email_template_body"				: "Body",
+			"activation_email_template"			: "Activation Email",
+			"lost_password_email_template"		: "Lost Password Email",
+			"credentials_email_template"		: "New Credentials Email",
+			"credentials_email_template_help"	: "This email template is used when somebody registers through social media. This email will notify the user of their new account and their generated username and password.",
+
+			"admin_email_notification_emails"			: "Emails to be be notified",
+			"admin_email_notification_emails_help"		: "Emails that will receive a notification when one of the bottom actions are performed. Add valid email addresses separated by a comma.",
+			"admin_new_user_email_notification"			: "New User",
+			"admin_new_user_email_notification_help"	: "Receive an email when a new users registers to the website.",
+			"admin_new_payment_email_notification"		: "New Payment",
+			"admin_new_payment_email_notification_help"	: "Receive an email when a new payment is successfully processed.",
+
+			"proxy"								: "Enable Proxy",
+			"proxy_help"						: "Enabling Proxy will determine the script to try and send request to instagram via Proxies that you have added in <a href=\"admin/proxies-management\">Proxies Management</a>",
+			"proxy_exclusive"					: "Proxy Only Requests",
+			"proxy_exclusive_help"				: "If enabled, the requests to instagram will only be sent with proxies ( not from the current server ). If not enabled then there will be an approximate 50% chance to use the current server.",
+			"proxy_timeout"						: "Proxy Timeout",
+			"proxy_timeout_help"				: "After how many seconds a proxy request should timeout",
+			"proxy_failed_requests_pause"		: "Proxy Failed Requests until Pause",
+			"proxy_failed_requests_pause_help"	: "After how many failed requests a proxy request should pause",
+			"proxy_pause_duration"				: "Proxy Pause Duration (minutes)",
+			"proxy_pause_duration_help"			: "After how many minutes a proxy request should be used again after a pause"
+		},
+
+		"button": {
+			"test_email"							: "Test Email Settings",
+			"test_email_help"					: "It will send an email to the value from the <strong>From</strong> field that you set above. Make sure to first save the settings!"
+		},
+
+		"success_message": {
+			"saved"								: "Website settings have been saved!",
+			"email"								: "The test email has been sent successfully!"
+		},
+
+		"error_message": {
+			"email"								: "Test email failed: %s"
+		},
+
+		"email_template_keys": {
+			"help"								: "<u>This form supports html so that you can format the email how you want.</u>",
+			"name"								: "{{NAME}} - Name of the user",
+			"website_title"						: "{{WEBSITE_TITLE}} - Title of the website",
+			"website_link"						: "{{WEBSITE_LINK}} - Url to the website",
+			"activation_link"					: "{{ACTIVATION_LINK}} - Activation link",
+			"lost_password_link"				: "{{LOST_PASSWORD_LINK}} - Reset Password Link",
+			"account_username"					: "{{ACCOUNT_USERNAME}} - New Account Username",
+			"account_password"					: "{{ACCOUNT_PASSWORD}} - New Account Password"
+		},
+
+		"tab": {
+			"main"						: "Main",
+			"store"						: "Store",
+			"ads"						: "Ads",
+			"api"						: "API's",
+			"social"					: "Social",
+			"email"						: "Email",
+			"email_templates"			: "Email Templates",
+			"email_notifications"		: "Email Notifications",
+			"sources"					: "Sources Settings",
+			"cron"						: "Cron Job",
+			"proxy"						: "Proxy"
+		}
 	},
