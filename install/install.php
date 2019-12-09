@@ -48,3 +48,39 @@ if($response->body->status == 'error') {
         'message' => $response->body->message
     ]));
 }
+/* Success check */
+if($response->body->status == 'success') {
+
+    /* Prepare the config file content */
+    $config_content =
+<<<ALTUM
+<?php
+defined('ALTUMCODE') || die();
+
+\$config = [
+    'database_host'        => '{$_POST['database_host']}',
+    'database_username'    => '{$_POST['database_username']}',
+    'database_password'    => '{$_POST['database_password']}',
+    'database_name'        => '{$_POST['database_name']}',
+    'url'                  => '{$_POST['url']}'
+];
+
+ALTUM;
+
+    /* Write the new config file */
+    file_put_contents(ROOT . 'core/config/config.php', $config_content);
+
+    /* Run SQL */
+    $dump_content = file_get_contents(ROOT . 'install/dump.sql');
+
+    $dump = explode('-- SEPARATOR --', $dump_content);
+
+    foreach($dump as $query) {
+        $database->query($query);
+    }
+
+    die(json_encode([
+        'status' => 'success',
+        'message' => ''
+    ]));
+}
