@@ -24,3 +24,10 @@ $database = @new mysqli(
     $_POST['database_password'],
     $_POST['database_name']
 );
+
+if($database->connect_error) {
+    die(json_encode([
+        'status' => 'error',
+        'message' => 'The database connection has failed!'
+    ]));
+}
