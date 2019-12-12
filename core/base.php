@@ -1,5 +1,5 @@
 <?php
-defined('ALTUMCODE') || die();
+defined('MAHIDCODE') || die();
 
 require 'init.php';
 
