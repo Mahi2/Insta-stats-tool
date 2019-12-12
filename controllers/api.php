@@ -17,3 +17,19 @@ $column = $_GET['source'] != 'youtube' ? 'username' : 'youtube_id';
 if(!$source_user_id = Database::simple_get('id', $table, [$column => $_GET['username']])) {
     echo json_encode(['access' => false, 'message' => $language->api->error_message->not_found]);  die();
 }
+
+if($settings->store_unlock_report_price != '0') {
+    /* Make sure the API key is correct */
+    $profile_account = Database::get(['user_id', 'type'], 'users', ['api_key' => $_GET['api_key']]);
+
+    if(!$profile_account) {
+        echo json_encode(['access' => false, 'message' => $language->api->error_message->unauthorized]); die();
+    }
+
+    /* Make sure the username exists and the user has access to it */
+    if(!User::has_valid_report($source_user_id, $profile_account->user_id, $source) && $profile_account->type != '1') {
+        echo json_encode(['access' => false, 'message' => $language->api->error_message->unauthorized]); die();
+    }
+}
+
+$data = Database::get('*', $table, ['id' => $source_user_id]);
