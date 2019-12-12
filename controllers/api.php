@@ -33,3 +33,14 @@ if($settings->store_unlock_report_price != '0') {
 }
 
 $data = Database::get('*', $table, ['id' => $source_user_id]);
+
+/* Remove not needed data*/
+unset($data->id);
+unset($data->is_demo);
+
+$data->details = json_decode($data->details);
+$data->access = true;
+
+if($source == 'instagram') {
+    require_once $plugins->require($source, 'controllers/api');
+}
