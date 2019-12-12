@@ -13,3 +13,9 @@ if(!$this_account) redirect();
 
 /* Make sure the email that has been sent is correct also */
 if(md5($this_account->email) != $md5_email) redirect();
+
+/* Activate the account and reset the email_activation_code */
+$stmt = $database->prepare("UPDATE `users` SET `active` = 1, `email_activation_code` = '' WHERE `user_id` = ?");
+$stmt->bind_param('s', $this_account->user_id);
+$stmt->execute();
+$stmt->close();
