@@ -85,3 +85,18 @@ if($user_one && $source_account_one && $user_two && $source_account_two) {
         require_once $plugins->require($source, 'controllers/compare');
     }
 }
+
+/* Insert the chartjs library */
+add_event('head', function() {
+    global $settings;
+
+    echo '<script src="' . $settings->url . ASSETS_ROUTE . 'js/Chart.bundle.min.js"></script>';
+});
+
+/* Custom title */
+add_event('title', function() {
+    global $page_title;
+    global $language;
+
+    $page_title = $language->compare->title;
+});
