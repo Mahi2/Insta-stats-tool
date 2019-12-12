@@ -7,3 +7,29 @@ $user_two = isset($parameters[2]) ? Database::clean_string($parameters[2]) : fal
 
 $table = $source . '_users';
 $column = $source != 'youtube' ? 'username' : 'youtube_id';
+
+/* We need to check if the user already exists in our database */
+switch($source) {
+    case 'youtube':
+
+        $stmt = $database->prepare("SELECT * FROM `youtube_users` WHERE `youtube_id` = ? OR `username` = ?");
+        $stmt->bind_param('ss', $user_one, $user_one);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $source_account_one = $result->fetch_object();
+        $stmt->close();
+
+        $stmt = $database->prepare("SELECT * FROM `youtube_users` WHERE `youtube_id` = ? OR `username` = ?");
+        $stmt->bind_param('ss', $user_two, $user_two);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $source_account_two = $result->fetch_object();
+        $stmt->close();
+
+        break;
+
+    default:
+        $source_account_one = $user_one ? Database::get('*', $table, ['username' => $user_one]) : false;
+        $source_account_two = $user_two ? Database::get('*', $table, ['username' => $user_two]) : false;
+
+}
