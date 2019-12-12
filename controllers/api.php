@@ -44,3 +44,8 @@ $data->access = true;
 if($source == 'instagram') {
     require_once $plugins->require($source, 'controllers/api');
 }
+
+/* Output the json content */
+echo json_encode($data);
+
+$controller_has_view = false;
