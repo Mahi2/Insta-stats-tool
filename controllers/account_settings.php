@@ -53,3 +53,20 @@ if(!empty($_POST)) {
         $stmt->bind_param('sss', $_POST['email'], $_POST['username'], $_POST['name']);
         $stmt->execute();
         $stmt->close();
+
+        /* Change the email settings too */
+        if($settings->email_reports) {
+            $stmt = $database->prepare("UPDATE `users` SET `email_reports` = ? WHERE `user_id` = {$account_user_id}");
+            $stmt->bind_param('s', $_POST['email_reports']);
+            $stmt->execute();
+            $stmt->close();
+        }
+
+        $_SESSION['success'][] = $language->account_settings->success_message->account_updated;
+        $account = Database::get('*', 'users', ['user_id' => $account_user_id]);
+
+
+        if(!empty($_POST['old_password']) && !empty($_POST['new_password'])) {
+            $new_password = password_hash($_POST['new_password'], PASSWORD_DEFAULT);
+
+            Database::update('users', ['password' => $new_password], ['user_id' => $account_user_id]);
