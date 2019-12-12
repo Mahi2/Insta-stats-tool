@@ -19,3 +19,9 @@ $stmt = $database->prepare("UPDATE `users` SET `active` = 1, `email_activation_c
 $stmt->bind_param('s', $this_account->user_id);
 $stmt->execute();
 $stmt->close();
+
+/* Login and set a successful message */
+$_SESSION['user_id'] = $this_account->user_id;
+$_SESSION['success'][] = $language->global->success_message->account_activated;
+
+redirect('dashboard');
