@@ -48,3 +48,8 @@ if(!empty($_POST)) {
 
 
     if(empty($_SESSION['error'])) {
+        /* Prepare the statement and execute query */
+        $stmt = $database->prepare("UPDATE `users` SET `email` = ?, `username` = ?, `name` = ? WHERE `user_id` = {$account_user_id}");
+        $stmt->bind_param('sss', $_POST['email'], $_POST['username'], $_POST['name']);
+        $stmt->execute();
+        $stmt->close();
