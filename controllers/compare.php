@@ -42,3 +42,46 @@ if($user_one && !$source_account_one) {
 if($user_two && !$source_account_two) {
     $_SESSION['info'][] = sprintf($language->compare->info_message->user_not_found, $user_two, $user_two, $user_two);
 }
+
+/* Make sure the user has at least one report purchased if needed */
+if(
+    $user_one &&
+    $user_two &&
+    $source_account_one &&
+    $source_account_two &&
+
+    (
+        $settings->store_unlock_report_price == '0' ||
+
+        (
+            $settings->store_unlock_report_price != '0' && User::logged_in() &&
+
+            (
+                User::has_valid_report($source_account_one->id) ||
+                User::has_valid_report($source_account_two->id) ||
+                ($source_account_one->is_demo && $source_account_two->is_demo) ||
+                $account->type
+            )
+        )
+    )
+) {
+    $access = true;
+} else {
+    $access = false;
+
+    if(!User::logged_in() && $settings->store_unlock_report_price != '0') {
+        $_SESSION['error'][] = $language->compare->error_message->no_access;
+    } else if($user_one && $user_two) {
+        $_SESSION['error'][] = $language->compare->error_message->no_access_purchase;
+    }
+}
+
+
+if($user_one && $source_account_one && $user_two && $source_account_two) {
+    $user_one = $source_account_one->username;
+    $user_two = $source_account_two->username;
+
+    if($plugins->exists_and_active($source)) {
+        require_once $plugins->require($source, 'controllers/compare');
+    }
+}
