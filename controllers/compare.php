@@ -33,3 +33,12 @@ switch($source) {
         $source_account_two = $user_two ? Database::get('*', $table, ['username' => $user_two]) : false;
 
 }
+
+/* Check if the searched accounts are existing to the database */
+if($user_one && !$source_account_one) {
+    $_SESSION['info'][] = sprintf($language->compare->info_message->user_not_found, $user_one, $user_one, $user_one);
+}
+
+if($user_two && !$source_account_two) {
+    $_SESSION['info'][] = sprintf($language->compare->info_message->user_not_found, $user_two, $user_two, $user_two);
+}
