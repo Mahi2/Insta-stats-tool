@@ -1,5 +1,5 @@
 <?php
-defined('ALTUMCODE') || die();
+defined('MAHIDCODE') || die();
 
 if(MYSQL_DEBUG) {
     $result = $database->query("show profiles");
