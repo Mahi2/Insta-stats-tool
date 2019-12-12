@@ -70,3 +70,26 @@ if(!empty($_POST)) {
             $new_password = password_hash($_POST['new_password'], PASSWORD_DEFAULT);
 
             Database::update('users', ['password' => $new_password], ['user_id' => $account_user_id]);
+
+            /* Set a success message and log out the user */
+            User::logout();
+        }
+    }
+
+}
+
+if($method && $method == 'delete') {
+
+    if(!Security::csrf_check_session_token('url_token', $url_token)) {
+        $_SESSION['error'][] = $language->global->error_message->invalid_token;
+    }
+
+
+    if(empty($_SESSION['error'])) {
+
+        /* Delete the user */
+        User::delete_user($account_user_id);
+        User::logout();
+
+    }
+}
