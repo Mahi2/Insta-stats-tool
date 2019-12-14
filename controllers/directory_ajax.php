@@ -148,3 +148,127 @@ if($engagement_to) {
     ';
 }
 $order_by_filter = in_array($order_by_filter, ['id', 'username', 'followers', 'following', 'uploads', 'average_engagement_rate']) ? $order_by_filter : 'ASC';
+
+/* Build html for the filters */
+$filters_html = '
+<div class="d-flex justify-content-between">
+    <div id="active_filters"></div>
+
+    <div class="btn-group">
+        <div class="btn-group">
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><i class="fa fa-table"></i> ' . $language->directory->display->order_by . '</button>
+            <div class="dropdown-menu px-3 py-2" data-no-toggle>
+                <h6 class="dropdown-header">' . $language->directory->display->order_by_help . '</h6>
+
+                <div class="form-inline d-flex justify-content-between">
+                    <div class="form-group">
+                        <select class="form-control" name="order_by_filter">
+                            <option value="">' . $language->directory->display->order_by_filter . '</option>
+                            <option value="id" selected="true">ID</option>
+                            <option value="username">' . $language->instagram->report->display->username . '</option>
+                            <option value="followers">' . $language->instagram->report->display->followers . '</option>
+                            <option value="following">' . $language->instagram->report->display->following . '</option>
+                            <option value="uploads">' . $language->instagram->report->display->uploads . '</option>
+                            <option value="average_engagement_rate">' . $language->instagram->report->display->average_engagement_rate . '</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group mt-2">
+                        <select class="form-control" name="order_by_type">
+                            <option value="">' . $language->directory->display->order_by_type . '</option>
+                            <option value="ASC" selected="true">' . $language->directory->display->ascending . '</option>
+                            <option value="DESC">' . $language->directory->display->descending . '</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <div class="btn-group">
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><i class="fas fa-pencil-alt"></i> ' . $language->directory->display->bio . '</button>
+            <div class="dropdown-menu" data-no-toggle>
+                <div class="px-3 py-2">
+                    <h6 class="dropdown-header">' . $language->directory->display->bio_help . '</h6>
+                    
+                    <div class="form-group">
+                        <input type="text" name="bio_filter" class="form-control form-control-border" placeholder="' . $language->directory->input->bio_filter . '" value="'. $bio . '" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="btn-group">
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><i class="fa fa-users"></i> ' . $language->directory->display->followers . '</button>
+            <div class="dropdown-menu px-3 py-2" data-no-toggle>
+                <h6 class="dropdown-header">' . $language->directory->display->followers_help . '</h6>
+                
+                <div class="form-inline d-flex justify-content-between">
+                    <div class="form-group">
+                        <select class="form-control" name="followers_from_filter">
+                            <option value="">' . $language->directory->display->from . '</option>
+                            <option value="500">500</option>
+                            <option value="5000">5K</option>
+                            <option value="10000">10K</option>
+                            <option value="25000">25K</option>
+                            <option value="50000">50K</option>
+                            <option value="100000">100K</option>
+                            <option value="250000">250K</option>
+                            <option value="500000">500K</option>
+                            <option value="1000000">1M</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <select class="form-control" name="followers_to_filter">
+                            <option value="">' . $language->directory->display->to . '</option>
+                            <option value="1000">1K</option>
+                            <option value="5000">5K</option>
+                            <option value="10000">10K</option>
+                            <option value="25000">25K</option>
+                            <option value="50000">50K</option>
+                            <option value="100000">100K</option>
+                            <option value="250000">250K</option>
+                            <option value="500000">500K</option>
+                            <option value="1000000">>1M</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="btn-group">
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><i class="fa fa-comments"></i> ' . $language->directory->display->engagement . '</button>
+            <div class="dropdown-menu px-3 py-2" data-no-toggle>
+                <h6 class="dropdown-header">' . $language->directory->display->engagement_help . '</h6>
+                
+                <div class="form-inline d-flex justify-content-between">
+                    <div class="form-group">
+                        <select class="form-control" name="engagement_from_filter">
+                            <option value="">' . $language->directory->display->from . '</option>
+                            <option value="0.5">0.5%</option>
+                            <option value="1">1%</option>
+                            <option value="2">2%</option>
+                            <option value="3">3%</option>
+                            <option value="5">5%</option>
+                            <option value="7">7%</option>
+                            <option value="10">10%</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <select class="form-control" name="engagement_to_filter">
+                            <option value="">' . $language->directory->display->to . '</option>
+                            <option value="1">1%</option>
+                            <option value="2">2%</option>
+                            <option value="3">3%</option>
+                            <option value="5">5%</option>
+                            <option value="7">7%</option>
+                            <option value="10">>10%</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+      
+    </div>
+</div>';
