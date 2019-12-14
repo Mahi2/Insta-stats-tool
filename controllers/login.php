@@ -64,3 +64,33 @@ if($settings->instagram_login) {
                     $stmt->bind_param('ssssssssss', $username, $password, $email, $name, $active, $date, $instagram_data->user->id, $api_key, $settings->store_user_default_points, $settings->email_reports_default);
                     $stmt->execute();
                     $stmt->close();
+/* Prepare the email */
+$email_template = generate_email_template(
+    [
+        '{{NAME}}'              => $name,
+        '{{WEBSITE_TITLE}}'     => $settings->title
+    ],
+    $settings->credentials_email_template_subject,
+    [
+        '{{ACCOUNT_USERNAME}}'  => $username,
+        '{{ACCOUNT_PASSWORD}}'  => $generated_password,
+        '{{WEBSITE_LINK}}'      => $settings->url,
+        '{{NAME}}'              => $name,
+        '{{WEBSITE_TITLE}}'     => $settings->title
+    ],
+    $settings->credentials_email_template_body
+);
+
+/* Send the user an email with his new details */
+sendmail($email, $email_template->subject, $email_template->body);
+
+/* Log the user in and redirect him */
+$_SESSION['user_id'] = Database::simple_get('user_id', 'users', ['instagram_id' => $instagram_data->user->id]);
+$_SESSION['success'][] = $language->register->success_message->login;
+redirect();
+}
+}
+}
+
+}
+}
