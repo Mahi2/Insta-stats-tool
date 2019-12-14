@@ -37,3 +37,24 @@ if($settings->instagram_login) {
                 $_SESSION['user_id'] = $account->user_id;
                 redirect($redirect);
             }
+
+            /* Create a new account */
+            else {
+                /* Generate a random username */
+                $username = generate_slug($instagram_data->user->username);
+
+                /* Error checks */
+
+                /* If the user already exists, generate a new username with some random characters */
+                while(Database::exists('username', 'users', ['username' => $username])) {
+                    $username = generate_slug($instagram_data->user->username) . rand(100, 999);
+                }
+
+                if(empty($_SESSION['error'])) {
+                    $generated_password = generate_string(8);
+                    $password = password_hash($generated_password, PASSWORD_DEFAULT);
+                    $description = $instagram_data->user->bio;
+                    $name = $instagram_data->user->full_name;
+                    $email = '';
+                    $active = 1;
+                    $api_key = md5($email . $username);
