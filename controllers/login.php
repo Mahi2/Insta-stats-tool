@@ -217,3 +217,16 @@ if($settings->facebook_login) {
                         ],
                         $settings->credentials_email_template_body
                     );
+
+                    /* Send the user an email with his new details */
+                    sendmail($email, $email_template->subject, $email_template->body);
+
+                    /* Log the user in and redirect him */
+                    $_SESSION['user_id'] = Database::simple_get('user_id', 'users', ['facebook_id' => $facebook_user_id]);
+                    $_SESSION['success'][] = $language->register->success_message->login;
+                    redirect($redirect);
+                }
+            }
+        }
+    }
+}
