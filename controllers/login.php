@@ -94,3 +94,27 @@ redirect();
 
 }
 }
+
+/* Facebook Login / Register */
+if($settings->facebook_login) {
+
+    $facebook = new Facebook\Facebook([
+        'app_id' => $settings->facebook_app_id,
+        'app_secret' => $settings->facebook_app_secret,
+        'default_graph_version' => 'v2.2',
+    ]);
+
+    $facebook_helper = $facebook->getRedirectLoginHelper();
+    $facebook_login_url = $facebook->getRedirectLoginHelper()->getLoginUrl($settings->url . 'login/facebook', ['email', 'public_profile']);
+
+    if($method == 'facebook') {
+        try {
+            $facebook_access_token = $facebook_helper->getAccessToken($settings->url . 'login/facebook');
+        } catch (Facebook\Exceptions\FacebookResponseException $e) {
+            $_SESSION['error'][] = 'Graph returned an error: ' . $e->getMessage();
+        } catch (Facebook\Exceptions\FacebookSDKException $e) {
+            $_SESSION['error'][] = 'Facebook SDK returned an error: ' . $e->getMessage();
+        }
+    }
+
+    if(isset($facebook_access_token)) {
