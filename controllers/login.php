@@ -58,3 +58,9 @@ if($settings->instagram_login) {
                     $email = '';
                     $active = 1;
                     $api_key = md5($email . $username);
+
+                    /* Insert the user into the database */
+                    $stmt = $database->prepare("INSERT INTO `users` (`username`, `password`, `email`, `name`, `active`, `date`, `instagram_id`, `api_key`, `points`, `email_reports`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+                    $stmt->bind_param('ssssssssss', $username, $password, $email, $name, $active, $date, $instagram_data->user->id, $api_key, $settings->store_user_default_points, $settings->email_reports_default);
+                    $stmt->execute();
+                    $stmt->close();
