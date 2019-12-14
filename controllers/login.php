@@ -194,3 +194,26 @@ if($settings->facebook_login) {
                     $name = $facebook_user->getName();
                     $active = 1;
                     $api_key = md5($email.$username);
+
+                    /* Insert the user into the database */
+                    $stmt = $database->prepare("INSERT INTO `users` (`username`, `password`, `email`, `name`, `active`, `date`, `facebook_id`, `api_key`, `points`, `email_reports`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+                    $stmt->bind_param('ssssssssss', $username, $password, $email, $name, $active, $date, $facebook_user_id, $api_key, $settings->store_user_default_points, $settings->email_reports_default);
+                    $stmt->execute();
+                    $stmt->close();
+
+                    /* Prepare the email */
+                    $email_template = generate_email_template(
+                        [
+                            '{{NAME}}' => $name,
+                            '{{WEBSITE_TITLE}}' => $settings->title
+                        ],
+                        $settings->credentials_email_template_subject,
+                        [
+                            '{{ACCOUNT_USERNAME}}' => $username,
+                            '{{ACCOUNT_PASSWORD}}' => $generated_password,
+                            '{{WEBSITE_LINK}}' => $settings->url,
+                            '{{NAME}}' => $name,
+                            '{{WEBSITE_TITLE}}' => $settings->title
+                        ],
+                        $settings->credentials_email_template_body
+                    );
