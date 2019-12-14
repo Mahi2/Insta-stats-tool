@@ -272,3 +272,118 @@ $filters_html = '
       
     </div>
 </div>';
+
+/* Start building the html */
+$html = '';
+
+/* Counter for the limit so that we dont go over the real limit */
+$limit_counter = 0;
+
+$html .= '<div class="result">';
+
+while($source_account = $reports_result->fetch_object()):
+
+    if($limit_counter >= $real_limit) {
+        continue;
+    }
+
+    if($bio) {
+        $source_account->description = str_ireplace($bio, '<strong>' . $bio . '</strong>', $source_account->description);
+    }
+
+    $html .= ' 
+    <div class="card card-shadow mt-4 mb-1 index-card">
+        <div class="card-body card-body pt-4 pb-2">
+            <div class="d-flex flex-column flex-sm-row flex-wrap">';
+
+    $html .= '<div class="col-sm-4 col-md-3 col-lg-2 d-flex justify-content-center justify-content-sm-start">';
+
+    if(!empty($source_account->profile_picture_url)):
+        $html .= '<img src="' . $source_account->profile_picture_url . '" onerror="$(this).attr(\'src\', ($(this).data(\'failover\')))"  data-failover="' . $settings->url . ASSETS_ROUTE . 'images/default_avatar.png" class="img-responsive rounded-circle directory-instagram-avatar" alt="' . $source_account->full_name . '" />';
+    endif;
+
+    $html .= '</div>';
+
+    $html .= '
+                <div class="col-sm-8 col-md-9 col-lg-5 d-flex justify-content-center justify-content-sm-start">
+                    <div class="row d-flex flex-column">
+                        <p class="m-0">
+                            <a href="https://instagram.com/'.$source_account->username . '" target="_blank" class="text-dark" rel="nofollow">@' . $source_account->username . '</a>
+                        </p>
+
+                        <h5>
+                            <a class="text-dark" href="report/' . $source_account->username . '">' . $source_account->full_name . '</a> ';
+
+    if($source_account->is_private):
+        $html .= '<span data-toggle="tooltip" title="' . $language->instagram->report->display->private . '"><i class="fa fa-lock user-private-badge"></i></span>';
+    endif;
+
+    if($source_account->is_verified):
+        $html .= '<span data-toggle="tooltip" title="' . $language->instagram->report->display->verified . '"><i class="fa fa-check-circle user-verified-badge"></i></span>';
+    endif;
+
+    $html .= '</h5>';
+
+    if($bio) {
+        $html .= '<small class="text-muted">' . $source_account->description . '</small>';
+    }
+
+    $html .= '
+                    </div>  
+                </div>';
+
+    $html .= '
+                <div class="col-md-12 col-lg-5 d-flex justify-content-around align-items-center mt-4 mt-lg-0">
+                    <div class="col d-flex flex-column justify-content-center">
+                        <strong>' . $language->instagram->report->display->followers . '</strong>
+                        <p class="directory-header-number">' . nr($source_account->followers) . '</p>
+                    </div>
+
+                    <div class="col d-flex flex-column justify-content-center">
+                        <strong>' . $language->instagram->report->display->uploads . '</strong>
+                        <p class="directory-header-number">' . nr($source_account->uploads) .'</p>
+                    </div>
+
+                    <div class="col d-flex flex-column justify-content-center">
+                        <strong>' . $language->instagram->report->display->engagement_rate . '</strong>
+                        <p class="directory-header-number">
+                            ' . (($source_account->is_private || !is_numeric($source_account->average_engagement_rate)) ? 'N/A' : nr($source_account->average_engagement_rate, 2)) . '%                               
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>';
+
+    $limit_counter++;
+endwhile;
+
+if($total_results > $real_limit) {
+    $html .= '
+    <div class="text-center">
+        <button type="submit" name="submit" class="btn btn-dark mt-5" id="show_more">' . $language->global->show_more . '</button>
+    </div>';
+}
+
+$html .= '</div>';
+
+/* When there is no result show a notice */
+if($total_results == 0) {
+    $html .= '<div class="result">';
+
+    $html .= '
+                <div class="alert alert-info animated fadeIn mt-5">
+                    <strong>' . $language->directory->info_message->no_results_title . '</strong> ' . $language->directory->info_message->no_results . '
+                </div>';
+
+    $html .= '</div>';
+}
+
+Response::json('', 'success', [
+    'html' => $html,
+    'filters_html' => $filters_html,
+    'active_filters_html' => $active_filters_html,
+    'has_more' => (bool) ($total_results > $real_limit)
+]);
+
+$controller_has_view = false;
