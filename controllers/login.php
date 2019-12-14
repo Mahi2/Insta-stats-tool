@@ -230,3 +230,59 @@ if($settings->facebook_login) {
         }
     }
 }
+
+if(!empty($_POST)) {
+    /* Clean username and encrypt the password */
+    $_POST['username'] = Database::clean_string($_POST['username']);
+    $login_username = $_POST['username'];
+
+    /* Check for any errors */
+    if(empty($_POST['username']) || empty($_POST['password'])) {
+        $_SESSION['error'][] = $language->global->error_message->empty_fields;
+    }
+
+    /* Try to get the user from the database */
+    if(filter_var($_POST['username'], FILTER_VALIDATE_EMAIL)) {
+        $result = $database->query("SELECT `user_id`, `username`, `active`, `password`, `token_code` FROM `users` WHERE `email` = '{$_POST['username']}'");
+    } else {
+        $result = $database->query("SELECT `user_id`, `username`, `active`, `password`, `token_code` FROM `users` WHERE `username` = '{$_POST['username']}'");
+    }
+    $login_account = $result->num_rows ? $result->fetch_object() : false;
+
+    if(!$login_account) {
+        $_SESSION['error'][] = $language->login->error_message->wrong_login_credentials;
+    } else {
+
+        if(!$login_account->active) {
+            $_SESSION['error'][] = $language->login->error_message->user_not_active;
+        }
+
+        if(!password_verify($_POST['password'], $login_account->password)) {
+            $_SESSION['error'][] = $language->login->error_message->wrong_login_credentials;
+        }
+
+    }
+
+    if(empty($_SESSION['error'])) {
+        /* If remember me is checked, log the user with cookies for 30 days else, remember just with a session */
+        if(isset($_POST['rememberme'])) {
+            $token_code = $login_account->token_code;
+
+            /* Generate a new token */
+            if(empty($login_account->token_code)) {
+                $token_code = md5($login_account->username . microtime());
+                Database::update('users', ['token_code' => $token_code], ['user_id' => $login_account->user_id]);
+            }
+
+            setcookie('username', $login_account->username, time()+60*60*24*30);
+            setcookie('token_code', $token_code, time()+60*60*24*30);
+
+        } else {
+            $_SESSION['user_id'] = $login_account->user_id;
+        }
+
+
+        $_SESSION['info'][] = $language->login->info_message->logged_in;
+        redirect($redirect);
+    }
+}
