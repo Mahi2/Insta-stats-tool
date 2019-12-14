@@ -149,3 +149,20 @@ if($settings->facebook_login) {
             $facebook_user = $response->getGraphUser();
             $facebook_user_id = $facebook_user->getId();
             $email = $facebook_user->getField('email');
+            /* If the user is already in the system, log him in */
+            if($account = Database::get(['user_id'], 'users', ['facebook_id' => $facebook_user_id])) {
+                $_SESSION['user_id'] = $account->user_id;
+                redirect($redirect);
+            }
+
+            /* Check if the user already exists with the specific email */
+            else if($account = Database::get(['user_id'], 'users', ['email' => $email])) {
+
+                Database::update('users', ['facebook_id' => $facebook_user_id], ['user_id' => $account->user_id]);
+
+                /* Log the user in and redirect him */
+                $_SESSION['user_id'] = $account->user_id;
+                $_SESSION['success'][] = $language->register->success_message->login;
+                redirect($redirect);
+
+            }
