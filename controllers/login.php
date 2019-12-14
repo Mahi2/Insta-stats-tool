@@ -118,3 +118,34 @@ if($settings->facebook_login) {
     }
 
     if(isset($facebook_access_token)) {
+        /* The OAuth 2.0 client handler helps us manage access tokens */
+        $facebook_oAuth2_client = $facebook->getOAuth2Client();
+
+        /* Get the access token metadata from /debug_token */
+        $facebook_token_metadata = $facebook_oAuth2_client->debugToken($facebook_access_token);
+
+        /* Validation */
+        $facebook_token_metadata->validateAppId($settings->facebook_app_id);
+        $facebook_token_metadata->validateExpiration();
+
+        if(!$facebook_access_token->isLongLived()) {
+            /* Exchanges a short-lived access token for a long-lived one */
+            try {
+                $facebook_access_token = $facebook_oAuth2_client->getLongLivedAccessToken($facebook_access_token);
+            } catch (Facebook\Exceptions\FacebookSDKException $e) {
+                $_SESSION['error'][] = 'Error getting long-lived access token: ' . $facebook_helper->getMessage();
+            }
+        }
+
+        try {
+            $response = $facebook->get('/me?fields=id,name,email', $facebook_access_token);
+        } catch(Facebook\Exceptions\FacebookResponseException $e) {
+            $_SESSION['error'][] = 'Graph returned an error: ' . $e->getMessage();
+        } catch(Facebook\Exceptions\FacebookSDKException $e) {
+            $_SESSION['error'][] = 'Facebook SDK returned an error: ' . $e->getMessage();
+        }
+
+        if(isset($response)) {
+            $facebook_user = $response->getGraphUser();
+            $facebook_user_id = $facebook_user->getId();
+            $email = $facebook_user->getField('email');
