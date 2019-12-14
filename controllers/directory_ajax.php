@@ -32,3 +32,73 @@ $order_by_filter = $order_by_type =  false;
 
 
 if(isset($_POST['filters'])) {
+    /* Trim to makesure */
+    foreach($_POST['filters'] AS $key => $value) {
+        $_POST['filters'][$key] = trim($_POST['filters'][$key]);
+    }
+
+    if(isset($_POST['filters']['order_by_filter']) && !empty($_POST['filters']['order_by_filter'])) {
+
+        $order_by_filter = Database::clean_string($_POST['filters']['order_by_filter']);
+        $order_by_filter = in_array($order_by_filter, ['id', 'username', 'followers', 'following', 'uploads', 'average_engagement_rate']) ? $order_by_filter : 'ASC';
+
+        $order_by_column = '`' . $order_by_filter . '` ';
+
+    }
+
+    if(isset($_POST['filters']['order_by_type']) && !empty($_POST['filters']['order_by_type'])) {
+
+        $order_by_type = strtoupper(Database::clean_string($_POST['filters']['order_by_type']));
+        $order_by_type = in_array($order_by_type, ['ASC', 'DESC']) ? $order_by_type : 'ASC';
+
+        $order_by_criteria = $order_by_type;
+
+    }
+
+    if(isset($_POST['filters']['bio_filter']) && !empty($_POST['filters']['bio_filter'])) {
+
+        $bio = Database::clean_string($_POST['filters']['bio_filter']);
+
+        $where .= 'AND `description` LIKE \'%' . $bio . '%\'';
+
+    }
+
+    if(isset($_POST['filters']['followers_from_filter']) && !empty($_POST['filters']['followers_from_filter'])) {
+
+        $followers_from = (int) Database::clean_string($_POST['filters']['followers_from_filter']);
+
+        $where .= 'AND `followers` >= ' . $followers_from . ' ';
+
+    }
+
+    if(isset($_POST['filters']['followers_to_filter']) && !empty($_POST['filters']['followers_to_filter'])) {
+
+        $followers_to = (int) Database::clean_string($_POST['filters']['followers_to_filter']);
+
+        $comparison_sign = ($followers_to >= 1000000) ? '>=' : '<=';
+
+        $where .= 'AND `followers` '. $comparison_sign . ' ' . $followers_to . ' ';
+
+    }
+
+    if(isset($_POST['filters']['engagement_from_filter']) && !empty($_POST['filters']['engagement_from_filter'])) {
+
+        $engagement_from = (float) Database::clean_string($_POST['filters']['engagement_from_filter']);
+
+        $where .= 'AND `average_engagement_rate` >= ' . $engagement_from . ' ';
+
+    }
+
+    if(isset($_POST['filters']['engagement_to_filter']) && !empty($_POST['filters']['engagement_to_filter'])) {
+
+        $engagement_to = (float) Database::clean_string($_POST['filters']['engagement_to_filter']);
+
+        $comparison_sign = ($engagement_to >= 10) ? '>=' : '<=';
+
+        $where .= 'AND `average_engagement_rate` '. $comparison_sign . ' ' . $engagement_to . ' ';
+
+    }
+}
+
+$reports_result = $database->query("SELECT * FROM `instagram_users` WHERE {$where} ORDER BY {$order_by_column} {$order_by_criteria} LIMIT {$start}, {$limit}");
+$total_results = $reports_result->num_rows;
