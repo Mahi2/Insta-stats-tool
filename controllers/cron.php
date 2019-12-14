@@ -43,3 +43,28 @@ if($settings->email_reports) {
         }
     }
 }
+
+/* **********************/
+/* Accounts Checking    */
+/* **********************/
+$is_proxy_request = false;
+
+/* Check if we need to use a proxy */
+if($settings->proxy) {
+
+    /* Select a proxy from the database */
+    $proxy = $database->query("
+        SELECT *
+        FROM `proxies`
+        WHERE
+            (`failed_requests` < {$settings->proxy_failed_requests_pause})
+            OR
+            (`failed_requests` >= {$settings->proxy_failed_requests_pause} AND '{$date}' > DATE_ADD(`last_date`, INTERVAL {$settings->proxy_pause_duration} MINUTE))
+        ORDER BY `last_date` ASC
+    ");
+
+    if($proxy->num_rows) {
+
+        $proxy = $proxy->fetch_object();
+
+        $rand = rand(1, 10);
