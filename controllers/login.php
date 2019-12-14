@@ -166,3 +166,31 @@ if($settings->facebook_login) {
                 redirect($redirect);
 
             }
+
+            /* Create a new account */
+            else {
+                /* Generate a random username */
+                $username = generate_slug($facebook_user->getName());
+
+                /* Check if email is actually not null */
+                if(is_null($email)) {
+                    $_SESSION['error'][] = $language->register->error_message->email_is_null;
+                }
+
+                /* Error checks */
+                if(Database::exists('email', 'users', ['email' => $email])) {
+                    $_SESSION['error'][] = $language->register->error_message->email_exists;
+                }
+
+                /* If the user already exists, generate a new username with some random characters */
+                while(Database::exists('username', 'users', ['username' => $username])) {
+                    $username = generate_slug($facebook_user->getName()) . rand(100,999);
+                }
+
+
+                if(empty($_SESSION['error'])) {
+                    $generated_password = generate_string(8);
+                    $password 	= password_hash($generated_password, PASSWORD_DEFAULT);
+                    $name = $facebook_user->getName();
+                    $active = 1;
+                    $api_key = md5($email.$username);
