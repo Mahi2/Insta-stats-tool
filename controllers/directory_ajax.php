@@ -14,3 +14,8 @@ if(!empty($error)) {
     Response::json($error, 'error');
     die();
 }
+
+/* Get the reports */
+$start = (int) filter_var($_POST['start'], FILTER_SANITIZE_NUMBER_INT);
+$real_limit = (int) filter_var($_POST['limit'], FILTER_SANITIZE_NUMBER_INT);
+$limit = $real_limit + 1;
