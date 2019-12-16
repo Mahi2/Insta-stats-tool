@@ -96,3 +96,32 @@ if($sig_header) {
             $new_points = (int) intval($payment_total);
 
             $database->query("UPDATE `users` SET `points` = `points` + {$new_points} WHERE `user_id` = {$user_id}");
+
+            /* Send notification to admin if needed */
+            if($settings->admin_new_payment_email_notification && !empty($settings->admin_email_notification_emails)) {
+
+                sendmail(
+                    explode(',', $settings->admin_email_notification_emails),
+                    sprintf($language->global->email->admin_new_payment_email_notification_subject, 'STRIPE', intval($payment_total), $settings->store_currency),
+                    sprintf($language->global->email->admin_new_payment_email_notification_body, intval($payment_total), $settings->store_currency)
+                );
+
+            }
+
+            echo 'successful';
+        }
+
+    } catch (\UnexpectedValueException $e) {
+
+        // Invalid payload
+        http_response_code(400);
+        exit();
+
+    } catch (\Stripe\Error\SignatureVerification $e) {
+
+        // Invalid signature
+        http_response_code(400);
+        exit();
+
+    }
+}
