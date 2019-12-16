@@ -124,3 +124,29 @@ if(isset($_GET['success'], $_GET['paymentId'], $_GET['PayerID']) && $_GET['succe
 
     $payment_id = $_GET['paymentId'];
     $payer_id = $_GET['PayerID'];
+
+    /* First make sure the payment is not already existing */
+    if(Database::exists(['id'], 'payments', ['payment_id' => $payment_id, 'payer_id' => $payer_id])) {
+        redirect('store');
+    }
+
+    try {
+        $payment = Payment::get($payment_id, $paypal);
+
+        $payer_info = $payment->getPayer()->getPayerInfo();
+        $payer_email = $payer_info->getEmail();
+        $payer_name = $payer_info->getFirstName() . ' ' . $payer_info->getLastName();
+
+        $transactions = $payment->getTransactions();
+        $amount = $transactions[0]->getAmount();
+        $amount_total = $amount->getTotal();
+        $amount_currency = $amount->getCurrency();
+
+        $execute = new PaymentExecution();
+        $execute->setPayerId($payer_id);
+
+        $result = $payment->execute($execute, $paypal);
+
+    } catch (Exception $ex) {
+        $data = json_decode($ex->getData());
+    }
