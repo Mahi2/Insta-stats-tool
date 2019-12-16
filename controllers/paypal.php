@@ -55,3 +55,60 @@ if(!empty($_POST)) {
         ->setPresentation($presentation)
         ->setInputFields($inputFields)
         ->setTemporary(true);
+
+        /* Create the experience profile */
+    try {
+        $createdProfileResponse = $webProfile->create($paypal);
+    } catch (\PayPal\Exception\PayPalConnectionException $ex) {
+        echo $ex->getCode();
+        echo $ex->getData();
+
+        die($ex);
+    }
+
+    $payer = new Payer();
+    $payer->setPaymentMethod('paypal');
+
+    $item = new Item();
+    $item->setName($product)
+        ->setCurrency($settings->store_currency)
+        ->setQuantity(1)
+        ->setPrice($price);
+
+    $itemList = new ItemList();
+    $itemList->setItems([$item]);
+
+
+    $amount = new Amount();
+    $amount->setCurrency($settings->store_currency)
+        ->setTotal($total);
+
+    $transaction = new Transaction();
+    $transaction->setAmount($amount)
+        ->setItemList($itemList)
+        ->setInvoiceNumber(uniqid());
+
+    $redirectUrls = new RedirectUrls();
+    $redirectUrls->setReturnUrl($settings->url . 'paypal?success=true')
+        ->setCancelUrl($settings->url . 'paypal?success=false');
+
+    $payment = new Payment();
+    $payment->setIntent('sale')
+        ->setPayer($payer)
+        ->setRedirectUrls($redirectUrls)
+        ->setTransactions([$transaction])
+        ->setExperienceProfileId($createdProfileResponse->getId());
+
+    try {
+        $payment->create($paypal);
+    } catch (Exception $ex) {
+        echo $ex->getCode();
+        echo $ex->getData();
+
+        die($ex);
+    }
+
+    $approvalUrl = $payment->getApprovalLink();
+
+    header('Location: ' . $approvalUrl);
+}
