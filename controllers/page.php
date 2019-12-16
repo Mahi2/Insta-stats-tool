@@ -12,3 +12,11 @@ if(!$custom_page) {
 	$_SESSION['info'][] = $language->page->info_message->invalid_page;
 	redirect();
 }
+
+/* Custom title */
+add_event('title', function() {
+    global $page_title;
+    global $custom_page;
+
+    $page_title = $custom_page->title;
+});
