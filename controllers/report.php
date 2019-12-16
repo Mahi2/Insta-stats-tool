@@ -53,3 +53,24 @@ if($settings->proxy) {
     }
 
 }
+
+require_once $plugins->require($source, 'controllers/report');
+
+/* Some extra processing */
+$source_account->last_check_date = (new \DateTime($source_account->last_check_date))->format($language->global->date->datetime_format . ' H:i:s');
+$source_account->last_successful_check_date = (new \DateTime($source_account->last_successful_check_date))->format($language->global->date->datetime_format . ' H:i:s');
+
+/* Check if current user has a valid report */
+$has_valid_report = User::logged_in() && User::has_valid_report($source_account->id, $account_user_id, $source);
+
+/* Get favorites data */
+if(User::logged_in()) {
+    $is_favorited = Database::simple_get('id', 'favorites', [
+        'user_id' => $account_user_id,
+        'source_user_id' => $source_account->id
+    ]);
+}
+
+Security::csrf_set_session_token('url_token', true);
+
+$controller_has_container = false;
