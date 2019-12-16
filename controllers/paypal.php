@@ -35,4 +35,23 @@ if(!empty($_POST)) {
 
     $total = $price;
 
-    
+    /* Payment experience */
+    $flowConfig = new FlowConfig();
+    $flowConfig->setLandingPageType('Billing');
+    $flowConfig->setUserAction('commit');
+    $flowConfig->setReturnUriHttpMethod('GET');
+
+    $presentation = new Presentation();
+    $presentation->setBrandName(string_resize($settings->title, 50, $append = ''));
+
+    $inputFields = new InputFields();
+    $inputFields->setAllowNote(true)
+        ->setNoShipping(1)
+        ->setAddressOverride(0);
+
+    $webProfile = new WebProfile();
+    $webProfile->setName(string_resize($settings->title, 25, $append = '') . uniqid())
+        ->setFlowConfig($flowConfig)
+        ->setPresentation($presentation)
+        ->setInputFields($inputFields)
+        ->setTemporary(true);
