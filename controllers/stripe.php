@@ -69,3 +69,9 @@ if($sig_header) {
             $extra = explode('###', $session->client_reference_id);
 
             $user_id = (int) $extra[0];
+
+            /* Make sure the transaction is not already existing */
+            if(Database::exists('id', 'payments', ['payment_id' => $payment_id, 'type' => 'STRIPE'])) {
+                http_response_code(400);
+                die();
+            }
