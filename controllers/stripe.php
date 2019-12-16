@@ -13,3 +13,9 @@ if($method && $method == 'stripe-success') {
     $_SESSION['success'][] = $language->store->success_message->paid;
     redirect('store');
 }
+
+/* Return confirmation processing if failed */
+if($method && $method == 'stripe-cancel') {
+    $_SESSION['info'][] = $language->store->info_message->canceled;
+    redirect('store');
+}
