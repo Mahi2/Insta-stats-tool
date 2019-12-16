@@ -63,3 +63,42 @@ else {
         $pages_result = $database->query("SELECT `url` FROM `pages` WHERE `url` NOT LIKE 'https://%' AND `url` NOT LIKE 'http://%'");
     }
 ?>
+
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+<url>
+
+    <loc><?= $settings->url ?></loc>
+
+    <changefreq>monthly</changefreq>
+
+    <priority>0.8</priority>
+
+</url>
+
+<?php while($report = $source_users_result->fetch_object()): ?>
+<url>
+
+    <loc><?= $settings->url . 'report/' . $report->username . '/' . $report->source ?></loc>
+
+    <lastmod><?= (new DateTime($report->last_check_date))->format('Y-m-d\TH:i:sP') ?></lastmod>
+
+    <changefreq>daily</changefreq>
+
+    <priority>0.9</priority>
+
+</url>
+<?php endwhile ?>
+
+<?php if($limit == 0) while($page = $pages_result->fetch_object()): ?>
+    <url>
+        <loc><?= $settings->url . 'page/' . $page->url ?></loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+<?php endwhile ?>
+</urlset>
+
+<?php } ?>
+
+<?php $controller_has_view = false;
