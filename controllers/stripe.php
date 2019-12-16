@@ -75,3 +75,19 @@ if($sig_header) {
                 http_response_code(400);
                 die();
             }
+
+            /* Add a log into the database */
+            Database::insert(
+                'payments',
+                [
+                    'user_id' => $user_id,
+                    'type' => 'STRIPE',
+                    'email' => $payer_email,
+                    'payment_id' => $payment_id,
+                    'payer_id' => $payer_id,
+                    'name' => $payer_name,
+                    'amount' => $payment_total,
+                    'currency' => $payment_currency,
+                    'date' => $date
+                ]
+            );
