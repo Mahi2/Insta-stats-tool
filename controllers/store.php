@@ -48,3 +48,26 @@ if($package && $username && $url_token) {
     if(empty($_SESSION['error']) && empty($_SESSION['info'])) {
         /* Doing the necessary database changes to the database */
         switch($package) {
+
+            /* Unlock report process */
+            case 'unlock_report' :
+                $expiration_date = ($settings->store_unlock_report_time != 0) ? (new \DateTime())->modify('+'.$settings->store_unlock_report_time.' days')->format('Y-m-d H:i:s') : 0;
+
+                Database::insert(
+                    'unlocked_reports',
+                    [
+                        'user_id'           => $account_user_id,
+                        'source'            => $source,
+                        'source_user_id'    => $source_user_id,
+                        'date'              => $date,
+                        'expiration_date'   => $expiration_date
+                    ]
+                );
+
+                Database::update(
+                    'users',
+                    [
+                        'points' => $account->points - $price
+                    ],
+                    ['user_id' => $account_user_id]
+                );
