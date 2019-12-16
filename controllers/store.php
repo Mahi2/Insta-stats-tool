@@ -33,3 +33,18 @@ if($package && $username && $url_token) {
         break;
 
     }
+
+    /* Check for other errors and permissions */
+    if(!in_array($package, $allowed_packages)) {
+        $_SESSION['error'][] = $language->store->error_message->allowed_packages;
+    }
+    if(!Security::csrf_check_session_token('url_token', $url_token)) {
+        $_SESSION['error'][] = $language->global->error_message->invalid_token;
+    }
+    if($account->points < $price) {
+        $_SESSION['info'][] = $language->store->error_message->not_enough_funds;
+    }
+
+    if(empty($_SESSION['error']) && empty($_SESSION['info'])) {
+        /* Doing the necessary database changes to the database */
+        switch($package) {
