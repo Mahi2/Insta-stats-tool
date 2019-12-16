@@ -42,3 +42,30 @@ if(!empty($_POST) && isset($_POST['amount'])) {
         'cancel_url' => url('stripe/stripe-cancel'),
     ]);
 }
+
+/* Process the webhook */
+$payload = @file_get_contents('php://input');
+$sig_header = @$_SERVER['HTTP_STRIPE_SIGNATURE'];
+$event = null;
+
+if($sig_header) {
+    try {
+        $event = \Stripe\Webhook::constructEvent(
+            $payload, $sig_header, $settings->store_stripe_webhook_secret
+        );
+
+        if($event->type == 'checkout.session.completed') {
+            $session = $event->data->object;
+
+            $payment_id = $session->id;
+            $payer_id = $session->customer;
+            $payer_object = \Stripe\Customer::retrieve($payer_id);
+            $payer_email = $payer_object->email;
+            $payer_name = $payer_object->name;
+
+            $payment_total = $session->display_items[0]->amount / 100;
+            $payment_currency = strtoupper($session->display_items[0]->currency);
+
+            $extra = explode('###', $session->client_reference_id);
+
+            $user_id = (int) $extra[0];
