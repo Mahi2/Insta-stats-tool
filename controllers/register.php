@@ -84,3 +84,29 @@ if(!empty($_POST)) {
     if(!preg_match($regex, $_POST['username'])) {
         $_SESSION['error'][] = $language->register->error_message->username_characters;
     }
+
+    /* If there are no errors continue the registering process */
+    if(empty($_SESSION['error'])) {
+        /* Define some needed variables */
+        $password   = password_hash($_POST['password'], PASSWORD_DEFAULT);
+        $active 	= ($settings->email_confirmation == 0) ? '1' : '0';
+        $email_code = md5($_POST['email'] . microtime());
+        $api_key = md5($_POST['email'].$_POST['username']);
+
+        /* Add the user to the database */
+        $stmt = $database->prepare("INSERT INTO `users` (`username`, `password`, `email`, `email_activation_code`, `name`, `active`, `date`, `api_key`, `points`, `email_reports`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+        $stmt->bind_param('ssssssssss', $_POST['username'], $password, $_POST['email'], $email_code, $_POST['name'], $active, $date, $api_key, $settings->store_user_default_points, $settings->email_reports_default);
+        $stmt->execute();
+        $registered_user_id = $stmt->insert_id;
+        $stmt->close();
+
+        /* Send notification to admin if needed */
+        if($settings->admin_new_user_email_notification && !empty($settings->admin_email_notification_emails)) {
+
+            sendmail(
+                explode(',', $settings->admin_email_notification_emails),
+                $language->global->email->admin_new_user_email_notification_subject,
+                sprintf($language->global->email->admin_new_user_email_notification_body, $_POST['name'], $_POST['username'])
+            );
+
+        }
