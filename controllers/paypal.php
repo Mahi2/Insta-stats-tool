@@ -150,3 +150,21 @@ if(isset($_GET['success'], $_GET['paymentId'], $_GET['PayerID']) && $_GET['succe
     } catch (Exception $ex) {
         $data = json_decode($ex->getData());
     }
+
+    /* If the $data variable is not set, there is no error in the payment processing */
+    if(!isset($data)) {
+        /* Add a log into the database */
+        Database::insert(
+            'payments',
+            [
+                'user_id' => $account_user_id,
+                'type' => 'PAYPAL',
+                'email' => $payer_email,
+                'payment_id' => $payment_id,
+                'payer_id' => $payer_id,
+                'name' => $payer_name,
+                'amount' => $amount_total,
+                'currency' => $amount_currency,
+                'date' => $date
+            ]
+        );
