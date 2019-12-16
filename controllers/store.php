@@ -108,3 +108,17 @@ if($package && $username && $url_token) {
 }
 
 Security::csrf_set_session_token('url_token');
+
+/* Get the transactions if any  */
+$account_transactions_result = $database->query("SELECT * FROM `payments` WHERE `user_id` = {$account_user_id} ORDER BY `id` DESC");
+
+/* Check for available methods of payment */
+$payment_methods = [];
+
+if(!empty($settings->store_paypal_client_id) && !empty($settings->store_paypal_secret)) {
+    $payment_methods['paypal'] = '<strong><a href="paypal">PayPal</a></strong>';
+}
+
+if(!empty($settings->store_stripe_publishable_key) && !empty($settings->store_stripe_secret_key)) {
+    $payment_methods['stripe'] = '<strong><a href="stripe">Stripe</a></strong>';
+}
