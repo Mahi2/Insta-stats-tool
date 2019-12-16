@@ -32,3 +32,24 @@ if($settings->proxy) {
         $proxy = $proxy->fetch_object();
 
         $rand = rand(1, 10);
+
+        /* Give it a 50 - 50 percent chance to choose from the server or from the proxy in case the proxy is not exclusive */
+        if($settings->proxy_exclusive || (!$settings->proxy_exclusive && $rand > 5)) {
+
+            $is_proxy_request = [
+                'address' => $proxy->address,
+                'port'    => $proxy->port,
+                'tunnel'  => true,
+                'timeout' => $settings->proxy_timeout,
+                'auth'    => [
+                    'user' => $proxy->username,
+                    'pass' => $proxy->password,
+                    'method' => $proxy->method
+                ]
+            ];
+
+        }
+
+    }
+
+}
