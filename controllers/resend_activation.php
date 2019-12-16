@@ -55,3 +55,8 @@ if(!empty($_POST)) {
 
 
 }
+
+/* Insert the recaptcha library */
+add_event('head', function() {
+    echo '<script src="https://www.google.com/recaptcha/api.js"></script>';
+});
