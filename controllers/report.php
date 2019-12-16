@@ -74,3 +74,19 @@ if(User::logged_in()) {
 Security::csrf_set_session_token('url_token', true);
 
 $controller_has_container = false;
+
+/* Insert the needed libraries */
+add_event('head', function() {
+    global $settings;
+    global $source_account;
+    global $source;
+
+    echo '<link href="' . $settings->url . ASSETS_ROUTE . 'css/datepicker.min.css" rel="stylesheet" media="screen,print">';
+    echo '<script src="' . $settings->url . ASSETS_ROUTE . 'js/datepicker.min.js"></script>';
+    echo '<script src="' . $settings->url . ASSETS_ROUTE . 'js/i18n/datepicker.en.js"></script>';
+    echo '<script src="' . $settings->url . ASSETS_ROUTE . 'js/Chart.bundle.min.js"></script>';
+
+    /* Canonical for SEO purposes */
+    echo '<link rel="canonical" href="' . $settings->url . 'report/' . $source_account->username . '/' . $source . '" />';
+
+});
