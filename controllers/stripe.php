@@ -91,3 +91,8 @@ if($sig_header) {
                     'date' => $date
                 ]
             );
+
+            /* Update the users balance */
+            $new_points = (int) intval($payment_total);
+
+            $database->query("UPDATE `users` SET `points` = `points` + {$new_points} WHERE `user_id` = {$user_id}");
