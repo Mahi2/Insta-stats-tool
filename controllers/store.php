@@ -71,3 +71,40 @@ if($package && $username && $url_token) {
                     ],
                     ['user_id' => $account_user_id]
                 );
+
+                /* Display a success message */
+                $_SESSION['success'][] = $language->store->success_message->report_unlocked;
+
+                /* Redirect to the report page */
+                redirect('report/' . $username . '/' . $source);
+
+            break;
+
+            /* No ads Package */
+            case 'no-ads' :
+
+                Database::update(
+                    'users',
+                    [
+                        'points' => $account->points - $price,
+                        'no_ads' => '1'
+                    ],
+                    ['user_id' => $account_user_id]
+                );
+
+                /* Update the account variable */
+                $account = Database::get('*', 'users', ['user_id' => $account_user_id]);
+
+
+                /* Display a success message */
+                $_SESSION['success'][] = $language->store->success_message->purchased;
+
+            break;
+
+        }
+
+    }
+
+}
+
+Security::csrf_set_session_token('url_token');
