@@ -19,3 +19,20 @@ if(empty($settings->store_paypal_client_id) || empty($settings->store_paypal_sec
     $_SESSION['info'][] = $language->store->info_message->paypal_not_available;
     User::get_back('store');
 }
+
+/* Dealing with generating the payment and redirection to pay */
+if(!empty($_POST)) {
+
+    $paypal = new \PayPal\Rest\ApiContext(
+        new \PayPal\Auth\OAuthTokenCredential($settings->store_paypal_client_id, $settings->store_paypal_secret)
+    );
+
+    $paypal->setConfig(['mode' => $settings->store_paypal_mode]);
+
+    $product = $settings->title . ' - Points';
+    $price = intval($_POST['amount']);
+    $shipping = 0;
+
+    $total = $price;
+
+    
