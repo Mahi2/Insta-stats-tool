@@ -168,3 +168,15 @@ if(isset($_GET['success'], $_GET['paymentId'], $_GET['PayerID']) && $_GET['succe
                 'date' => $date
             ]
         );
+
+        /* Update the users balance */
+        $updated_total_points = (int) $account->points + $amount_total;
+        Database::update(
+            'users',
+            [
+                'points' => $updated_total_points
+            ],
+            [
+                'user_id' => $account_user_id
+            ]
+        );
