@@ -39,3 +39,27 @@ if(!is_numeric($limit)) {
 
     echo '</sitemapindex>';
 }
+
+/* Generate the sub sitemap */
+else {
+
+    $sql = "SELECT  `username`, `last_check_date`, 'instagram' AS `source` FROM `instagram_users`";
+
+    foreach($plugins->plugins as $plugin_identifier => $value) {
+        if($plugins->exists_and_active($plugin_identifier)) {
+
+            $column = $plugin_identifier . '_users';
+
+            $sql .= " UNION SELECT  `username`, `last_check_date`, '{$plugin_identifier}' AS `source` FROM `{$column}`";
+        }
+    }
+
+    $sql .= "LIMIT {$limit}, {$pagination}";
+
+    $source_users_result = $database->query($sql);
+
+    /* Custom pages */
+    if($limit == 0) {
+        $pages_result = $database->query("SELECT `url` FROM `pages` WHERE `url` NOT LIKE 'https://%' AND `url` NOT LIKE 'http://%'");
+    }
+?>
