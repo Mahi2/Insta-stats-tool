@@ -112,3 +112,15 @@ if(!empty($_POST)) {
 
     header('Location: ' . $approvalUrl);
 }
+
+/* Dealing with the details after the payment has been processed */
+if(isset($_GET['success'], $_GET['paymentId'], $_GET['PayerID']) && $_GET['success'] == 'true') {
+
+    $paypal = new \PayPal\Rest\ApiContext(
+        new \PayPal\Auth\OAuthTokenCredential($settings->store_paypal_client_id, $settings->store_paypal_secret)
+    );
+
+    $paypal->setConfig(['mode' => $settings->store_paypal_mode]);
+
+    $payment_id = $_GET['paymentId'];
+    $payer_id = $_GET['PayerID'];
