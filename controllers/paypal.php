@@ -180,3 +180,28 @@ if(isset($_GET['success'], $_GET['paymentId'], $_GET['PayerID']) && $_GET['succe
                 'user_id' => $account_user_id
             ]
         );
+
+        /* Send notification to admin if needed */
+        if($settings->admin_new_payment_email_notification && !empty($settings->admin_email_notification_emails)) {
+
+            sendmail(
+                explode(',', $settings->admin_email_notification_emails),
+                sprintf($language->global->email->admin_new_payment_email_notification_subject, 'PAYPAL', $amount_total, $amount_currency),
+                sprintf($language->global->email->admin_new_payment_email_notification_body, $amount_total, $amount_currency)
+            );
+
+        }
+
+        /* Set a success message */
+        $_SESSION['success'][] = $language->store->success_message->paid;
+
+    } /* IF there was an error, display something to the user */
+    else {
+        $_SESSION['error'][] = $language->store->error_message->normal;
+    }
+}
+
+/* In case of cancel return url */
+if(isset($_GET['success']) && $_GET['success'] == 'false') {
+    $_SESSION['info'][] = $language->store->info_message->canceled;
+}
