@@ -110,3 +110,42 @@ if(!empty($_POST)) {
             );
 
         }
+
+        /* If active = 1 then login the user, else send the user an activation email */
+        if($active == '1') {
+            $_SESSION['user_id'] = $registered_user_id;
+            $_SESSION['success'] = $language->register->success_message->login;
+            redirect($redirect);
+        } else {
+
+            /* Prepare the email */
+            $email_template = generate_email_template(
+                [
+                    '{{NAME}}' => $_POST['name'],
+                    '{{WEBSITE_TITLE}}' => $settings->title
+                ],
+                $settings->activation_email_template_subject,
+                [
+                    '{{ACTIVATION_LINK}}' => $settings->url . 'activate/' . md5($_POST['email']) . '/' . $email_code,
+                    '{{NAME}}' => $_POST['name'],
+                    '{{ACCOUNT_USERNAME}}' => $_POST['username'],
+                    '{{WEBSITE_TITLE}}' => $settings->title
+                ],
+                $settings->activation_email_template_body
+            );
+
+            sendmail($_POST['email'], $email_template->subject, $email_template->body);
+
+            $_SESSION['success'][] = $language->register->success_message->registration;
+        }
+
+    }
+
+
+}
+
+
+/* Insert the recaptcha library */
+add_event('head', function() {
+    echo '<script src="https://www.google.com/recaptcha/api.js"></script>';
+});
