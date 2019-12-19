@@ -21,3 +21,16 @@ if($method && $method == 'remove-logo' && $url_token && Security::csrf_check_ses
 }
 
 if($method && $method == 'remove-favicon' && $url_token && Security::csrf_check_session_token('url_token', $url_token)) {
+
+    /* Delete the current log */
+    if(!empty($settings->favicon) && file_exists(ROOT . UPLOADS_ROUTE . 'favicon/' . $settings->favicon)) {
+        unlink(ROOT . UPLOADS_ROUTE . 'favicon/' . $settings->favicon);
+    }
+
+    /* Remove it from db */
+    $database->query("UPDATE `settings` SET `favicon` = '' WHERE `id` = 1");
+
+    /* Set message & Redirect */
+    $_SESSION['success'][] = $language->global->success_message->basic;
+    redirect('admin/website-settings');
+}
