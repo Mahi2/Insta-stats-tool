@@ -49,3 +49,6 @@ while($data = $payments_month_result->fetch_object()) {
     $earnings_month += $data->earnings;
 
 }
+
+/* Defining the chart data */
+$payments_month_chart = generate_chart_data($payments_month_chart);
