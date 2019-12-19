@@ -70,3 +70,20 @@ if(!empty($_POST)) {
         );
         $stmt->execute();
         $stmt->close();
+
+        /* Update the password if set */
+        if(!empty($_POST['new_password']) && !empty($_POST['repeat_password'])) {
+            $new_password = password_hash($_POST['new_password'], PASSWORD_DEFAULT);
+
+            $stmt = $database->prepare("UPDATE `users` SET `password` = ?  WHERE `user_id` = {$user_id}");
+            $stmt->bind_param('s', $new_password);
+            $stmt->execute();
+            $stmt->close();
+        }
+
+        $_SESSION['success'][] = $language->global->success_message->basic;
+    }
+
+}
+
+$profile_account = Database::get('*', 'users', ['user_id' => $user_id]);
