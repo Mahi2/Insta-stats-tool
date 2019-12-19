@@ -45,3 +45,28 @@ if(!empty($_POST)) {
 
 
     if(empty($_SESSION['error'])) {
+        /* Update the basic user settings */
+        $stmt = $database->prepare("
+			UPDATE
+				`users`
+			SET
+				`name` = ?,
+				`email` = ?,
+				`active` = ?,
+				`no_ads` = ?,
+				`type` = ?,
+				`points` = ?
+			WHERE
+				`user_id` = {$user_id}
+		");
+        $stmt->bind_param(
+            'ssssss',
+            $_POST['name'],
+            $_POST['email'],
+            $_POST['status'],
+            $_POST['no_ads'],
+            $_POST['type'],
+            $_POST['points']
+        );
+        $stmt->execute();
+        $stmt->close();
