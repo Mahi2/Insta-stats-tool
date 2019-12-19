@@ -119,3 +119,22 @@ if(!empty($_POST)) {
     $_POST['admin_email_notification_emails'] = str_replace(' ', '', $_POST['admin_email_notification_emails']);
     $_POST['admin_new_user_email_notification'] = (isset($_POST['admin_new_user_email_notification'])) ? '1' : '0';
     $_POST['admin_new_payment_email_notification'] = (isset($_POST['admin_new_payment_email_notification'])) ? '1' : '0';
+
+    /* Check for any errors on the logo image */
+    if($logo) {
+        $logo_file_name = $_FILES['logo']['name'];
+        $logo_file_extension = explode('.', $logo_file_name);
+        $logo_file_extension = strtolower(end($logo_file_extension));
+        $logo_file_temp = $_FILES['logo']['tmp_name'];
+        $logo_file_size = $_FILES['logo']['size'];
+        list($logo_width, $logo_height) = getimagesize($logo_file_temp);
+
+        if(!in_array($logo_file_extension, $image_allowed_extensions)) {
+            $_SESSION['error'][] = $language->global->error_message->invalid_file_type;
+        }
+
+        if(!is_writable(ROOT . UPLOADS_ROUTE . 'logo/')) {
+            $_SESSION['error'][] = sprintf($language->global->error_message->directory_not_writeable, ROOT . UPLOADS_ROUTE . 'logo/');
+        }
+
+        if(empty($_SESSION['error'])) {
