@@ -20,3 +20,30 @@ if(isset($type) && $type == 'delete') {
 	}
 
 }
+
+if(!empty($_POST)) {
+	/* Filter some the variables */
+	$_POST['title'] = Database::clean_string($_POST['title']);
+
+    if(strpos($_POST['url'], 'http://') !== false || strpos($_POST['url'], 'https://') !== false) {
+        $_POST['url']	= Database::clean_string($_POST['url']);
+    } else {
+        $_POST['url']	= generate_slug(Database::clean_string($_POST['url']), '-');
+    }
+
+	$_POST['position'] = (in_array($_POST['position'], ['1', '0'])) ? $_POST['position'] : '0';
+    $_POST['description'] = addslashes($_POST['description']);
+
+	$required_fields = ['title', 'url'];
+
+	/* Check for the required fields */
+	foreach($_POST as $key=>$value) {
+		if(empty($value) && in_array($key, $required_fields)) {
+			$_SESSION['error'][] = $language->global->error_message->empty_fields;
+			break 1;
+		}
+	}
+
+    if(!Security::csrf_check_session_token('form_token', $_POST['form_token'])) {
+        $_SESSION['error'][] = $language->global->error_message->invalid_token;
+    }
