@@ -92,3 +92,33 @@ if(!empty($_POST)) {
                         break;
 
                 }
+                /* Run the generated query */
+                $database->query($sql);
+
+            }
+
+            $_SESSION['success'][] = $language->global->success_message->basic;
+            redirect('admin/extra-settings');
+
+        }
+
+    }
+
+}
+
+$demo_users_sql = "
+    SELECT `username`, `is_featured`, `id`, 'instagram' AS `source` FROM `instagram_users` WHERE `is_demo` = 1
+    UNION SELECT `username`, `is_featured`, `id`, 'twitter' AS `source` FROM `twitter_users` WHERE `is_demo` = 1
+";
+
+if($plugins->exists_and_active('facebook')) {
+    $demo_users_sql .= " UNION SELECT `username`, `is_featured`, `id`, 'facebook' AS `source` FROM `facebook_users` WHERE `is_demo` = 1";
+}
+
+if($plugins->exists_and_active('youtube')) {
+    $demo_users_sql .= " UNION SELECT `youtube_id` AS `username`, `is_featured`, `id`, 'youtube' AS `source` FROM `youtube_users` WHERE `is_demo` = 1";
+}
+
+$demo_users_result = $database->query($demo_users_sql);
+
+$plugins_result = $database->query("SELECT * FROM `plugins`");
