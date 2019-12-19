@@ -27,3 +27,19 @@ if($plugins->exists_and_active('youtube')) {
 }
 
 $profile_reports = $database->query($sql);
+
+/* Get the profile favorite reports */
+$sql = "
+    SELECT 'instagram' AS `source`, `instagram_users`.`full_name`, `instagram_users`.`username` FROM `instagram_users` LEFT JOIN `favorites` ON `favorites`.`source_user_id` = `instagram_users`.`id` WHERE `favorites`.`source` = 'INSTAGRAM' AND `favorites`.`user_id` = {$user_id}
+    UNION SELECT 'twitter' AS `source`, `twitter_users`.`full_name`, `twitter_users`.`username` FROM `twitter_users` LEFT JOIN `favorites` ON `favorites`.`source_user_id` = `twitter_users`.`id` WHERE `favorites`.`source` = 'TWITTER' AND `favorites`.`user_id` = {$user_id}
+";
+
+if($plugins->exists_and_active('facebook')) {
+    $sql .= "UNION SELECT 'facebook' AS `source`, `facebook_users`.`name` as `full_name`, `facebook_users`.`username` FROM `facebook_users` LEFT JOIN `favorites` ON `favorites`.`source_user_id` = `facebook_users`.`id` WHERE `favorites`.`source` = 'FACEBOOK' AND `favorites`.`user_id` = {$user_id}";
+}
+
+if($plugins->exists_and_active('youtube')) {
+    $sql .= "UNION SELECT 'youtube' AS `source`, `youtube_users`.`title` AS `full_name`, `youtube_users`.`youtube_id` AS `username` FROM `youtube_users` LEFT JOIN `favorites` ON `favorites`.`source_user_id` = `youtube_users`.`id` WHERE `favorites`.`source` = 'YOUTUBE' AND `favorites`.`user_id` = {$user_id}";
+}
+
+$profile_favorites = $database->query($sql);
