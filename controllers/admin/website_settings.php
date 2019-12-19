@@ -114,3 +114,8 @@ if(!empty($_POST)) {
         'subject' => filter_var($_POST['credentials_email_subject'], FILTER_SANITIZE_STRING),
         'body' => $_POST['credentials_email_body']
     ]);
+
+    /* Email notifications */
+    $_POST['admin_email_notification_emails'] = str_replace(' ', '', $_POST['admin_email_notification_emails']);
+    $_POST['admin_new_user_email_notification'] = (isset($_POST['admin_new_user_email_notification'])) ? '1' : '0';
+    $_POST['admin_new_payment_email_notification'] = (isset($_POST['admin_new_payment_email_notification'])) ? '1' : '0';
