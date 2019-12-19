@@ -131,3 +131,16 @@ if(!empty($_POST)) {
     } catch (Exception $error) {
         $_SESSION['error'][] = $error->getMessage();
     }
+
+    /* If there are no errors continue the updating process */
+	if(empty($_SESSION['error'])) {
+		$database->query("INSERT INTO `proxies` (`address`, `port`, `username`, `password`, `note`, `method`, `date`) VALUES ('{$_POST['address']}', '{$_POST['port']}', '{$_POST['username']}', '{$_POST['password']}', '{$_POST['note']}', '{$_POST['method']}', '{$date}')");
+
+		$_SESSION['success'][] = $language->global->success_message->basic;
+
+        redirect('admin/proxies-management');
+    }
+
+}
+
+$proxies_result = $database->query("SELECT * FROM `proxies`");
