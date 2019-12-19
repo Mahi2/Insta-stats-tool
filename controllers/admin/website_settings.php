@@ -173,3 +173,19 @@ if(!empty($_POST)) {
         }
 
         if(empty($_SESSION['error'])) {
+            /* Delete current favicon */
+            if(!empty($settings->favicon) && file_exists(ROOT . UPLOADS_ROUTE . 'favicon/' . $settings->favicon)) {
+                unlink(ROOT . UPLOADS_ROUTE . 'favicon/' . $settings->favicon);
+            }
+
+            /* Generate new name for favicon */
+            $favicon_new_name = md5(time() . rand()) . '.' . $favicon_file_extension;
+
+            /* Upload the original */
+            move_uploaded_file($favicon_file_temp, ROOT . UPLOADS_ROUTE . 'favicon/' . $favicon_new_name);
+
+            /* Execute query */
+            $database->query("UPDATE `settings` SET `favicon` = '{$favicon_new_name}' WHERE `id` = 1");
+
+        }
+    }
