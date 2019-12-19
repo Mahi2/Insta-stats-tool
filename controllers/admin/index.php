@@ -25,3 +25,6 @@ while($data = $reports_month_result->fetch_object()) {
     $reports_month_chart['data'][] = $data->unlocked_reports;
     $reports_month += $data->unlocked_reports;
 }
+
+/* Defining the chart data */
+$reports_month_chart = generate_chart_data($reports_month_chart);
