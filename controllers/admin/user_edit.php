@@ -11,3 +11,9 @@ if(!$profile_account = Database::get('*', 'users', ['user_id' => $user_id])) {
 }
 
 if(!empty($_POST)) {
+    /* Filter some the variables */
+    $_POST['name']		= filter_var($_POST['name'], FILTER_SANITIZE_STRING);
+    $_POST['status']	= (int) $_POST['status'];
+    $_POST['type']	    = (int) $_POST['type'];
+    $_POST['no_ads']	= (int) $_POST['no_ads'];
+    $_POST['points']    = (int) $_POST['points'];
