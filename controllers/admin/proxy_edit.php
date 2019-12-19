@@ -58,3 +58,13 @@ if(!empty($_POST)) {
 
 
     if(empty($_SESSION['error'])) {
+
+        /* Update the database */
+        $database->query("UPDATE `proxies` SET `address` = '{$_POST['address']}', `port` = '{$_POST['port']}', `username` = '{$_POST['username']}', `password` = '{$_POST['password']}', `note` = '{$_POST['note']}', `method` = '{$_POST['method']}' WHERE `page_id` = {$proxy_id}");
+
+        /* Set a nice success message */
+        $_SESSION['success'][] = $language->global->success_message->basic;
+
+    }
+
+}
