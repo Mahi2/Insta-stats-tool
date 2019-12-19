@@ -11,3 +11,13 @@ if($method && $method == 'remove-logo' && $url_token && Security::csrf_check_ses
     if(!empty($settings->logo) && file_exists(ROOT . UPLOADS_ROUTE . 'logo/' . $settings->logo)) {
         unlink(ROOT . UPLOADS_ROUTE . 'logo/' . $settings->logo);
     }
+
+    /* Remove it from db */
+    $database->query("UPDATE `settings` SET `logo` = '' WHERE `id` = 1");
+
+    /* Set message & Redirect */
+    $_SESSION['success'][] = $language->global->success_message->basic;
+    redirect('admin/website-settings');
+}
+
+if($method && $method == 'remove-favicon' && $url_token && Security::csrf_check_session_token('url_token', $url_token)) {
