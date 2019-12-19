@@ -98,3 +98,19 @@ if(!empty($_POST)) {
     $_POST['proxy_timeout'] = (int) $_POST['proxy_timeout'];
     $_POST['proxy_failed_requests_pause'] = (int) $_POST['proxy_failed_requests_pause'];
     $_POST['proxy_pause_duration'] = (int) $_POST['proxy_pause_duration'];
+
+    /* Email templates */
+    $activation_email_template = json_encode([
+        'subject' => filter_var($_POST['activation_email_subject'], FILTER_SANITIZE_STRING),
+        'body' => $_POST['activation_email_body']
+    ]);
+
+    $lost_password_email_template = json_encode([
+        'subject' => filter_var($_POST['lost_password_email_subject'], FILTER_SANITIZE_STRING),
+        'body' => $_POST['lost_password_email_body']
+    ]);
+
+    $credentials_email_template = json_encode([
+        'subject' => filter_var($_POST['credentials_email_subject'], FILTER_SANITIZE_STRING),
+        'body' => $_POST['credentials_email_body']
+    ]);
