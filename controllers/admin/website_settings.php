@@ -189,3 +189,175 @@ if(!empty($_POST)) {
 
         }
     }
+
+    if(!Security::csrf_check_session_token('form_token', $_POST['form_token'])) {
+        $_SESSION['error'][] = $language->global->error_message->invalid_token;
+    }
+
+    if(empty($_SESSION['error'])) {
+        /* Prepare the statement and execute query */
+        $stmt = $database->prepare("
+            UPDATE
+                `settings`
+            SET
+                `title` = ?,
+                `default_language` = ?,
+                `meta_description` = ?,
+                `meta_keywords` = ?,
+                `time_zone` = ?,
+                `email_confirmation` = ?,
+                `directory` = ?,
+                `directory_pagination` = ?,
+                
+                `store_paypal_client_id` = ?,
+                `store_paypal_secret` = ?,
+                `store_paypal_mode` = ?,
+                `store_stripe_publishable_key` = ?,
+                `store_stripe_secret_key` = ?,
+                `store_stripe_webhook_secret` = ?,
+                `store_currency` = ?,
+                `store_unlock_report_price` = TRUNCATE(?, 2),
+                `store_unlock_report_time` = ?,
+                `store_no_ads_price` = TRUNCATE(?, 2),
+                `store_user_default_points` = ?,
+    
+                `report_ad` = ?,
+                `index_ad` = ?,
+                `account_sidebar_ad` = ?,
+    
+                `recaptcha` = ?,
+                `public_key` = ?,
+                `private_key` = ?,
+                `facebook_login` = ?,
+                `facebook_app_id` = ?,
+                `facebook_app_secret` = ?,
+                `instagram_login` = ?,
+                `instagram_client_id` = ?,
+                `instagram_client_secret` = ?,
+                `analytics_code` = ?,
+    
+                `facebook` = ?,
+                `twitter` = ?,
+                `youtube` = ?,
+                `instagram` = ?,
+    
+                `smtp_host` = ?,
+                `smtp_port` = ?,
+                `smtp_encryption` = ?,
+                `smtp_auth` = ?,
+                `smtp_user` = ?,
+                `smtp_pass` = ?,
+                `smtp_from` = ?,
+                
+                `cron_queries` = ?,
+                `cron_mode` = ?,
+                `cron_auto_add_missing_logs` = ?,
+                
+                `activation_email_template` = ?,
+                `lost_password_email_template` = ?,
+                `credentials_email_template` = ?,
+
+                `admin_email_notification_emails` = ?,
+                `admin_new_user_email_notification` = ?,
+                `admin_new_payment_email_notification` = ?,
+                
+                `proxy` = ?,
+                `proxy_exclusive` = ?,
+                `proxy_timeout` = ?,
+                `proxy_failed_requests_pause` = ?,
+                `proxy_pause_duration` = ?,                
+                
+                `email_reports` = ?,
+                `email_reports_default` = ?,
+                `email_reports_frequency` = ?,
+                `email_reports_favorites` = ?
+            WHERE `id` = 1
+        ");
+        $stmt->bind_param('sssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss',
+            $_POST['title'],
+            $_POST['default_language'],
+            $_POST['meta_description'],
+            $_POST['meta_keywords'],
+            $_POST['time_zone'],
+            $_POST['email_confirmation'],
+            $_POST['directory'],
+            $_POST['directory_pagination'],
+
+            $_POST['store_paypal_client_id'],
+            $_POST['store_paypal_secret'],
+            $_POST['store_paypal_mode'],
+            $_POST['store_stripe_publishable_key'],
+            $_POST['store_stripe_secret_key'],
+            $_POST['store_stripe_webhook_secret'],
+            $_POST['store_currency'],
+            $_POST['store_unlock_report_price'],
+            $_POST['store_unlock_report_time'],
+            $_POST['store_no_ads_price'],
+            $_POST['store_user_default_points'],
+
+            $_POST['report_ad'],
+            $_POST['index_ad'],
+            $_POST['account_sidebar_ad'],
+            $_POST['recaptcha'],
+            $_POST['public_key'],
+            $_POST['private_key'],
+            $_POST['facebook_login'],
+            $_POST['facebook_app_id'],
+            $_POST['facebook_app_secret'],
+            $_POST['instagram_login'],
+            $_POST['instagram_client_id'],
+            $_POST['instagram_client_secret'],
+            $_POST['analytics_code'],
+            $_POST['facebook'],
+            $_POST['twitter'],
+            $_POST['youtube'],
+            $_POST['instagram'],
+            $_POST['smtp_host'],
+            $_POST['smtp_port'],
+            $_POST['smtp_encryption'],
+            $_POST['smtp_auth'],
+            $_POST['smtp_user'],
+            $_POST['smtp_pass'],
+            $_POST['smtp_from'],
+
+            $_POST['cron_queries'],
+            $_POST['cron_mode'],
+            $_POST['cron_auto_add_missing_logs'],
+
+            $activation_email_template,
+            $lost_password_email_template,
+            $credentials_email_template,
+
+            $_POST['admin_email_notification_emails'],
+            $_POST['admin_new_user_email_notification'],
+            $_POST['admin_new_payment_email_notification'],
+
+            $_POST['proxy'],
+            $_POST['proxy_exclusive'],
+            $_POST['proxy_timeout'],
+            $_POST['proxy_failed_requests_pause'],
+            $_POST['proxy_pause_duration'],
+
+            $_POST['email_reports'],
+            $_POST['email_reports_default'],
+            $_POST['email_reports_frequency'],
+            $_POST['email_reports_favorites']
+        );
+        $stmt->execute();
+        $stmt->close();
+
+        foreach($plugins->plugins as $plugin_identifier => $value) {
+            if($plugins->exists_and_active($plugin_identifier)) {
+                require_once $plugins->require($plugin_identifier, 'controllers/admin/website_settings');
+            }
+        }
+
+        /* Refresh data */
+        $settings = get_settings();
+
+        /* Set message */
+        $_SESSION['success'][] = $language->admin_website_settings->success_message->saved;
+
+    }
+
+}
