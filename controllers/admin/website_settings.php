@@ -154,3 +154,22 @@ if(!empty($_POST)) {
 
         }
     }
+
+    /* Check for any errors on the logo image */
+    if($favicon) {
+        $favicon_file_name = $_FILES['favicon']['name'];
+        $favicon_file_extension = explode('.', $favicon_file_name);
+        $favicon_file_extension = strtolower(end($favicon_file_extension));
+        $favicon_file_temp = $_FILES['favicon']['tmp_name'];
+        $favicon_file_size = $_FILES['favicon']['size'];
+        list($favicon_width, $favicon_height) = getimagesize($favicon_file_temp);
+
+        if(!in_array($favicon_file_extension, $image_allowed_extensions)) {
+            $_SESSION['error'][] = $language->global->error_message->invalid_file_type;
+        }
+
+        if(!is_writable(ROOT . UPLOADS_ROUTE . 'favicon/')) {
+            $_SESSION['error'][] = sprintf($language->global->error_message->directory_not_writeable, ROOT . UPLOADS_ROUTE . 'favicon/');
+        }
+
+        if(empty($_SESSION['error'])) {
