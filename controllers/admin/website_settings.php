@@ -138,3 +138,19 @@ if(!empty($_POST)) {
         }
 
         if(empty($_SESSION['error'])) {
+            /* Delete current logo */
+            if(!empty($settings->logo) && file_exists(ROOT . UPLOADS_ROUTE . 'logo/' . $settings->logo)) {
+                unlink(ROOT . UPLOADS_ROUTE . 'logo/' . $settings->logo);
+            }
+
+            /* Generate new name for logo */
+            $logo_new_name = md5(time() . rand()) . '.' . $logo_file_extension;
+
+            /* Upload the original */
+            move_uploaded_file($logo_file_temp, ROOT . UPLOADS_ROUTE . 'logo/' . $logo_new_name);
+
+            /* Execute query */
+            $database->query("UPDATE `settings` SET `logo` = '{$logo_new_name}' WHERE `id` = 1");
+
+        }
+    }
