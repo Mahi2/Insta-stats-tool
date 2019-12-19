@@ -17,3 +17,11 @@ $reports_month_chart = [
     'data'          => []
 ];
 $reports_month = 0;
+
+/* Iterating and storing proper data for charts and later use */
+while($data = $reports_month_result->fetch_object()) {
+
+    $reports_month_chart['labels'][] = (new \DateTime($data->formatted_date))->format($language->global->date->datetime_format);
+    $reports_month_chart['data'][] = $data->unlocked_reports;
+    $reports_month += $data->unlocked_reports;
+}
