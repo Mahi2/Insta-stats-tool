@@ -34,3 +34,19 @@ if($method && $method == 'remove-favicon' && $url_token && Security::csrf_check_
     $_SESSION['success'][] = $language->global->success_message->basic;
     redirect('admin/website-settings');
 }
+
+/* Check if we need to send a test email */
+if($method && $method == 'test-email' && $url_token && Security::csrf_check_session_token('url_token', $url_token)) {
+
+    $result = sendmail($settings->smtp_from, $settings->title . ' - Test Email', 'This is just a test email to confirm the smtp email settings!', true);
+
+    if($result->ErrorInfo == '') {
+        $_SESSION['success'][] = $language->admin_website_settings->success_message->email;
+    } else {
+        $_SESSION['error'][] = sprintf($language->admin_website_settings->error_message->email, $result->ErrorInfo);
+    }
+
+    redirect('admin/website-settings');
+}
+
+if(!empty($_POST)) {
