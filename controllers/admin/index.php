@@ -38,3 +38,14 @@ $payments_month_chart = [
 ];
 $transactions_month = 0;
 $earnings_month = 0;
+
+/* Iterating and storing proper data for charts and later use */
+while($data = $payments_month_result->fetch_object()) {
+
+    $payments_month_chart['labels'][] = (new \DateTime($data->formatted_date))->format($language->global->date->datetime_format);
+    $payments_month_chart['transactions'][] = $data->transactions;
+    $payments_month_chart['earnings'][] = $data->earnings;
+    $transactions_month += $data->transactions;
+    $earnings_month += $data->earnings;
+
+}
