@@ -20,3 +20,15 @@ if(!empty($_POST)) {
     $_POST['method'] = (int) Database::clean_string($_POST['method']);
 
     $required_fields = ['address', 'port'];
+
+    /* Check for the required fields */
+    foreach($_POST as $key=>$value) {
+        if(empty($value) && in_array($key, $required_fields)) {
+            $_SESSION['error'][] = $language->global->error_message->empty_fields;
+            break 1;
+        }
+    }
+
+    if(!Security::csrf_check_session_token('form_token', $_POST['form_token'])) {
+        $_SESSION['error'][] = $language->global->error_message->invalid_token;
+    }
