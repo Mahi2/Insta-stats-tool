@@ -17,3 +17,31 @@ if(!empty($_POST)) {
     $_POST['type']	    = (int) $_POST['type'];
     $_POST['no_ads']	= (int) $_POST['no_ads'];
     $_POST['points']    = (int) $_POST['points'];
+
+    /* Check for any errors */
+    if(!Security::csrf_check_session_token('form_token', $_POST['form_token'])) {
+        $_SESSION['error'][] = $language->global->error_message->invalid_token;
+    }
+
+    if(strlen($_POST['name']) < 3 || strlen($_POST['name']) > 32) {
+        $_SESSION['error'][] = $language->admin_user_edit->error_message->name_length;
+    }
+    if(filter_var($_POST['email'], FILTER_VALIDATE_EMAIL) == false) {
+        $_SESSION['error'][] = $language->admin_user_edit->error_message->invalid_email;
+    }
+
+    if(Database::exists('user_id', 'users', ['email' => $_POST['email']]) && $_POST['email'] !== Database::simple_get('email', 'users', ['user_id' => $user_id])) {
+        $_SESSION['error'][] = $language->admin_user_edit->error_message->email_exists;
+    }
+
+    if(!empty($_POST['new_password']) && !empty($_POST['repeat_password'])) {
+        if(strlen(trim($_POST['new_password'])) < 6) {
+            $_SESSION['error'][] = $language->admin_user_edit->error_message->short_password;
+        }
+        if($_POST['new_password'] !== $_POST['repeat_password']) {
+            $_SESSION['error'][] = $language->admin_user_edit->error_message->passwords_not_matching;
+        }
+    }
+
+
+    if(empty($_SESSION['error'])) {
