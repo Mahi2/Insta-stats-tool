@@ -33,3 +33,8 @@ if(isset($type) && $type == 'delete') {
 if(isset($type) && $type == 'test') {
 
     $proxy = Database::get('*', 'proxies', ['proxy_id' => $proxy_id]);
+
+    /* Check for errors and permissions */
+    if(!Security::csrf_check_session_token('url_token', $url_token)) {
+        $_SESSION['error'][] = $language->global->error_message->invalid_token;
+    }
