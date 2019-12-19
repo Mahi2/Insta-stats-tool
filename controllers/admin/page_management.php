@@ -47,3 +47,14 @@ if(!empty($_POST)) {
     if(!Security::csrf_check_session_token('form_token', $_POST['form_token'])) {
         $_SESSION['error'][] = $language->global->error_message->invalid_token;
     }
+
+    /* If there are no errors continue the updating process */
+	if(empty($_SESSION['error'])) {
+		$database->query("INSERT INTO `pages` (`title`, `url`, `description`, `position`) VALUES ('{$_POST['title']}', '{$_POST['url']}', '{$_POST['description']}', '{$_POST['position']}')");
+
+		$_SESSION['success'][] = $language->global->success_message->basic;
+	}
+
+}
+
+$pages_result = $database->query("SELECT * FROM `pages` ORDER BY `page_id` ASC");
