@@ -28,3 +28,13 @@ while($data = $reports_month_result->fetch_object()) {
 
 /* Defining the chart data */
 $reports_month_chart = generate_chart_data($reports_month_chart);
+
+/* Data for the months transactions and earnings */
+$payments_month_result = $database->query("SELECT COUNT(*) AS `transactions`, DATE_FORMAT(`date`, '%Y-%m-%d') AS `formatted_date`, TRUNCATE(SUM(`amount`), 2) AS `earnings` FROM `payments` WHERE MONTH(`date`) = MONTH(CURRENT_DATE()) AND YEAR(`date`) = YEAR(CURRENT_DATE()) GROUP BY `formatted_date`");
+$payments_month_chart = [
+    'labels'        => [],
+    'transactions'  => [],
+    'earnings'      => []
+];
+$transactions_month = 0;
+$earnings_month = 0;
