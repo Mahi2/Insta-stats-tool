@@ -37,3 +37,23 @@ if(!empty($_POST)) {
 
     }
 }
+
+/* Insert the needed libraries */
+add_event('head', function() {
+    global $settings;
+
+    echo '<script src="' . $settings->url . ASSETS_ROUTE . 'js/tinymce/tinymce.min.js"></script>';
+
+    echo <<<ALTUM
+<script>
+$(document).ready(() => {
+    tinymce.init({
+        selector: '#description',
+        plugins: 'preview fullpage autolink directionality  visualblocks visualchars fullscreen image link media codesample table hr pagebreak nonbreaking toc advlist lists imagetools',
+        toolbar: 'formatselect | bold italic strikethrough forecolor backcolor | link | alignleft aligncenter alignright alignjustify  | numlist bullist outdent | removeformat',
+    });
+});
+</script>
+ALTUM;
+
+});
