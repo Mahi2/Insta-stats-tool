@@ -38,3 +38,39 @@ if(isset($type) && $type == 'test') {
     if(!Security::csrf_check_session_token('url_token', $url_token)) {
         $_SESSION['error'][] = $language->global->error_message->invalid_token;
     }
+
+    /* Select a random instagram user report and check for a result */
+    $source_account = $database->query("SELECT `username` FROM `instagram_users` ORDER BY RAND() LIMIT 1")->fetch_object();
+
+    if(!$source_account) {
+        $source_account = (object) ['username' => 'g_eazy'];
+    }
+
+    $instagram = new \InstagramScraper\Instagram();
+    $instagram->setUserAgent(get_random_user_agent());
+    $instagram::setProxy([
+        'address' => $proxy->address,
+        'port'    => $proxy->port,
+        'tunnel'  => true,
+        'timeout' => $settings->proxy_timeout,
+        'auth'    => [
+            'user' => $proxy->username,
+            'pass' => $proxy->password,
+            'method' => $proxy->method
+        ]
+    ]);
+
+    try {
+        $source_account_data = $instagram->getAccount($source_account->username);
+    } catch (Exception $error) {
+        $_SESSION['error'][] = $error->getMessage();
+    }
+
+    if(empty($_SESSION['error'])) {
+        $_SESSION['success'][] = $language->admin_proxies_management->success_message->test;
+    }
+
+    redirect('admin/proxies-management');
+}
+
+if(!empty($_POST)) {
