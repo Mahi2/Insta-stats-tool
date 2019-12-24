@@ -39,3 +39,14 @@ let number_format = (number, decimals, dec_point = '.', thousands_point = ',') =
         let len = number.toString().split('.').length;
         decimals = len > 1 ? len : 0;
     }
+
+    number = parseFloat(number).toFixed(decimals);
+
+    number = number.replace('.', dec_point);
+
+    let splitNum = number.split(dec_point);
+    splitNum[0] = splitNum[0].replace(/\B(?=(\d{3})+(?!\d))/g, thousands_point);
+    number = splitNum.join(dec_point);
+
+    return number;
+}
