@@ -6,4 +6,11 @@ $(document).ready(() => {
 		setTimeout(() => {
             $(event.currentTarget).removeClass('disabled');
         }, 3000)
+    });
+    
+    /* Confirm delete handler */
+	$('body').on('click', '[data-confirm]', (event) => {
+		let message = $(event.currentTarget).attr('data-confirm');
+
+		if(!confirm(message)) return false;
 	});
