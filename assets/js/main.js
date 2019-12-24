@@ -13,4 +13,8 @@ $(document).ready(() => {
 		let message = $(event.currentTarget).attr('data-confirm');
 
 		if(!confirm(message)) return false;
-	});
+    });
+    
+    /* Enable tooltips everywhere */
+	$('[data-toggle="tooltip"]').tooltip();
+});
