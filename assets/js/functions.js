@@ -23,4 +23,19 @@ let favorite = (event) => {
         dataType: 'json'
     });
 
+    event.preventDefault();
+
 }
+
+let is_url = (str) => (str.includes('http://') || str.includes('https://'));
+
+let number_format = (number, decimals, dec_point = '.', thousands_point = ',') => {
+
+    if(number == null || !isFinite(number)) {
+        throw new TypeError("number is not valid");
+    }
+
+    if(!decimals) {
+        let len = number.toString().split('.').length;
+        decimals = len > 1 ? len : 0;
+    }
